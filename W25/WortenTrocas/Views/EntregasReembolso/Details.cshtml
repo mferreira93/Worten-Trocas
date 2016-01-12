@@ -1,0 +1,106 @@
+﻿@model WortenTrocas.Models.EntregaReembolso
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EntregaReembolso</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProdutoATrocar.UserID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProdutoATrocar.UserID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResumoTrocaReembolso.EntregaReembolsoID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResumoTrocaReembolso.EntregaReembolsoID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResumoTrocaReembolsoID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResumoTrocaReembolsoID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataDaTrocaLojaReembolso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataDaTrocaLojaReembolso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MetodoPagamentoIBAN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MetodoPagamentoIBAN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MetodoPagamentoCR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MetodoPagamentoCR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoraDeEntregaReembolso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoraDeEntregaReembolso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LojaWortenReembolso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LojaWortenReembolso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IBAN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IBAN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Morada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Morada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CPostal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CPostal)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EntregaReembolsoID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

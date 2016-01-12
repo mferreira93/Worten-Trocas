@@ -1,0 +1,74 @@
+﻿@model WortenTrocas.Models.TrocaSemelhante
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TrocaSemelhante</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProdutoATrocar.UserID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProdutoATrocar.UserID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResumoTrocaSemelhante.ResumoTrocaSemelhanteID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResumoTrocaSemelhante.ResumoTrocaSemelhanteID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResumoTrocaSemelhanteID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResumoTrocaSemelhanteID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataDaTrocaLojaSemelhante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataDaTrocaLojaSemelhante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoraDeEntregaSemelhante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoraDeEntregaSemelhante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LojaWortenSemelhante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LojaWortenSemelhante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoTrocaSemelhante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoTrocaSemelhante)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TrocaSemelhanteID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

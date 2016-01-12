@@ -1,0 +1,218 @@
+﻿@{
+    ViewBag.Title = "Home Page | Worten Trocas ";
+}
+
+@Styles.Render("~/Scripts/magnific-popup/magnific-popup.css")
+@Styles.Render("~/Scripts/owl-carousel/owl.carousel.css")
+@Styles.Render("~/Scripts/owl-carousel/owl.theme.css")
+@Styles.Render("~/Content/style.css")
+@Styles.Render("~/Content/responsive.css")
+@Styles.Render("~/Content/header.css")
+@Styles.Render("~/Content/navigation-dark.css")
+@Scripts.Render("~/Content/slicknav/jquery.slicknav.min.js")
+@Scripts.Render("~/http://fonts.googleapis.com/css?family=Cookie")
+@Scripts.Render("~/Scripts/modernizr.js")
+@Scripts.Render("~/Scripts/jquery-2.1.1.js")
+@Scripts.Render("~/https://maps.googleapis.com/maps/api/js?v=3.exp&AMP;sensor=false")
+@Scripts.Render("~/Scripts/gmaps.js")
+@Scripts.Render("~/Scripts/magnific-popup/jquery.magnific-popup.js")
+@Scripts.Render("~/Scripts/mixitup/jquery.mixitup.js")
+@Scripts.Render("~/Scripts/scripts.js")
+@Scripts.Render("~/Scripts/scripts2.js")
+@Scripts.Render("~/Scripts/owl-carousel/owl.carousel.min.js")
+@Scripts.Render("~/Scripts/header.js")
+@Scripts.Render("~/https://cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.min.js")
+@Scripts.Render("~/http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js")
+
+
+
+
+
+<head>
+
+    
+    <meta name="theme-color" content="#ffffff">
+
+
+    
+
+    <meta charset="UTF-16">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no;">
+
+
+    
+
+
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+
+   
+
+
+    <!-- You need this element to prevent the content of the page from jumping up -->
+    <div class="header-fixed-placeholder"></div>
+
+    <!-- The content of your page would go here. -->
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div><!--preloader end-->
+
+    <div class="page-container">
+
+        <!-- Profile Page -->
+        <div class="single-page">
+
+            <!-- Profile Page Title-->
+            <div class="page-title">
+                <span><i class="fa fa-user fa-3x"></i></span>
+                <h2>Sobre</h2>
+                <p class="menu-desc">Worten Trocas</p>
+            </div>
+            <!-- .page-title -->
+            <!-- Profile Page Contents-->
+            <div class="page-info container-fluid">
+                <!-- about me -->
+                <div class="row about-me">
+                    <div class="col-sm-5 col-sm-offset-1 profile-image">
+                        <div class="pp-container">
+                            <img src="img/avatar.png" alt="">
+                        </div>
+                        <h2><span>Worten</span><span>Trocas</span></h2>
+                        <h3>Troque o seu aparelho com o maior conforto possível.</h3>
+
+                    </div>
+                    <!--.Profile image end-->
+                    <!-- bio-->
+                    <div class="col-sm-6 bio">
+                        <div class="bio-inner">
+                            <div class="col-md-10">
+                                <p>A Worten Trocas permite efetuar o processo de trocas com a maior comodidade de todas durante o período de experimentação (15 dias sem cartão Worten Resolve/30 dias com cartão Worten Resolve). </p>
+                                <p>Pretende-se disponibilizar o serviço apresentado em loja, durante uma troca, em qualquer lado, (conceito Omnichannel), de forma a não existir uma quebra no conceito Worten (loja e serviço online totalmente desfasado).</p>
+                                <p> É uma aplicação que se encontrará disponível para todos os dispositivos com internet sem a perda de fluidez da experiência na permuta de aparelhos (PC → Tablet → Smartphone, por exemplo).</p>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- .bio End -->
+                </div>
+                <!-- .about-me end-->
+
+
+            </div>
+            <!-- .page-info -->
+        </div> <!-- Single Page end -->
+        <!-- Resume Page -->
+
+        <div class="single-page" onclick="location.href='@Url.Action("Logado2", "Home")'">
+            <div class="page-title">
+                <span><i class="fa fa-file-text fa-3x"></i></span>
+                <h2>Ver Estado de Troca</h2>
+                <p class="menu-desc">Veja ou edite a sua troca.</p>
+            </div>
+            <!-- .page-title -->
+            <!-- Resume Page Contents-->
+            <div class="page-info container-fluid">
+
+
+
+            </div>
+            <!-- .page-info -->
+        </div><!-- Single Page end -->
+        <!-- Portfolio Page -->
+
+        <div class="single-page" onclick="location.href='@Url.Action("Logado", "Home")'">
+            <div class="page-title">
+                <span><i class="fa fa-briefcase fa-3x"></i></span>
+                <h2>Efectuar uma Troca</h2>
+                <p class="menu-desc">Inicie o processo de troca do seu produto</p>
+            </div>
+            <!-- .page-title -->
+            <!-- Popup content -->
+            <!--.Single item end-->
+            <!-- Portfolio Page Contents-->
+            <div class="page-info container-fluid">
+                <div class="row portfolios">
+                </div>
+
+            </div>
+            <!-- .page-info -->
+        </div><!-- Single Page end -->
+        <!-- Contact Page-->
+
+
+
+
+
+        <div class="single-page" onclick="window.location='Home/Suporte';">
+            <div class="page-title">
+                <span><i class="fa fa-paper-plane fa-3x"></i></span>
+                <h2>Suporte</h2>
+                <p class="menu-desc">Ajuda em como utilizar a aplicação.</p>
+            </div>
+            <!-- .page-title -->
+            <!-- Contact Page Contents-->
+            <div class="page-info container-fluid">
+
+
+            </div>
+            <!-- .page-info -->
+        </div><!-- Single Page end -->
+
+        <a href="#" class="page-close">Close</a>
+        <a href="#" class="page-scroll">Scroll</a>
+    </div>
+
+
+
+
+    <!-- .page-container -->
+    <!-- JavaScripts -->
+
+
+    <script>
+
+        $(document).ready(function () {
+
+            var showHeaderAt = 150;
+
+            var win = $(window),
+                    body = $('body');
+
+            // Show the fixed header only on larger screen devices
+
+            if (win.width() > 600) {
+
+                // When we scroll more than 150px down, we set the
+                // "fixed" class on the body element.
+
+                win.on('scroll', function (e) {
+
+                    if (win.scrollTop() > showHeaderAt) {
+                        body.addClass('fixed');
+                    }
+                    else {
+                        body.removeClass('fixed');
+                    }
+                });
+
+            }
+
+        });
+
+    </script>
+</body>
+
+
+

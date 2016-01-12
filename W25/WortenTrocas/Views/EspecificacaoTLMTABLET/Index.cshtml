@@ -1,0 +1,207 @@
+﻿@model IEnumerable<WortenTrocas.Models.EspecificacaoTLMTABLET>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Produto.NomeP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Marca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ecra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SistemaOperativo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TamanhoEcra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Processador)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VelocidadeProcessador)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Camara)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResCamara)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CanaraSecundaria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResCamaraSecundaria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MemoriaInterna)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MemoriaExterna)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bateria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bluetooth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GPS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WiFi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Acelerometro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bussola)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SensorProximidade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Peso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Altura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Largura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rede)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BloqueadoRede)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BloqueRede)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AudioJack)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AudioJackType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CarregadorWireless)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Produto.NomeP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Marca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ecra)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SistemaOperativo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TamanhoEcra)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Processador)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VelocidadeProcessador)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Camara)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResCamara)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CanaraSecundaria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResCamaraSecundaria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MemoriaInterna)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MemoriaExterna)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bateria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bluetooth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GPS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WiFi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Acelerometro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bussola)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SensorProximidade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Peso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Altura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Largura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rede)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BloqueadoRede)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BloqueRede)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AudioJack)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AudioJackType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CarregadorWireless)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EspecificacaoTLMTABLETID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EspecificacaoTLMTABLETID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EspecificacaoTLMTABLETID })
+        </td>
+    </tr>
+}
+
+</table>

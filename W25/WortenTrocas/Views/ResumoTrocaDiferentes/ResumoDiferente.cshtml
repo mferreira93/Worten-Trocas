@@ -1,0 +1,144 @@
+﻿@model ViewModelResumoTrocaDiferente
+@{
+    ViewBag.Title = "Criar Troca | Worten Trocas";
+    Layout = "~/Views/Shared/_Layout6.cshtml";
+}
+
+
+@Styles.Render("~/Content/assetsLogin/css/loginNew/styleAvariaResumo.css")
+@Styles.Render("http://fonts.googleapis.com/css?family=Noto+Sans")
+@Scripts.Render("~/Content/assetsLogin/plugins/jquery-1.10.1.min.js")
+@Scripts.Render("~/fonts/SEGOEUI.TTF")
+@Scripts.Render("~/Scripts/ScriptEscolherTroca.js")
+@Styles.Render("~/Content/assetsLogin/css/loginNew/flexslider.css")
+@Styles.Render("~/Content/assetsLogin/css/loginNew/prettyPhoto.css")
+@Styles.Render("~/Content/assetsLogin/css/loginNew/responsive.css")
+@Styles.Render("~/Content/assetsLogin/css/loginNew/superfish.css")
+@Styles.Render("~/Content/footer-distributed.css")
+
+
+
+
+<!-- BEGIN body -->
+<body>
+
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- BEGIN #topbar -->
+    <div class="login-form ">
+
+        <div style="background:url(../../../Content/images/img_criartroca_2.jpg) no-repeat top center;">
+            <br />
+            <br />
+            <br />
+            <br />
+            <h1 id="ctrocasize" style="color:whitesmoke; opacity:0.75;">RESUMO DA TROCA</h1>
+            <br />
+            <br />
+
+
+
+        </div>
+
+        @foreach (var item in Model.ProdutoUtilizador)
+        {
+        <!-- BEGIN .content-wrapper -->
+            <div class="page-content product-container">
+                <h1 style="font-weight:bold">&nbsp;&nbsp;&nbsp;&nbsp; <span> <img src="../../../Content/images/information-clipart-information-icon-hi.png" height="35" width="35" /></span>&nbsp;&nbsp;<strong>Número de troca: </strong>@Html.DisplayFor(model => item.RandomGeneratedNumber)</h1>
+                <hr />
+                <h1 style="font-weight:bold">&nbsp;&nbsp;&nbsp;&nbsp; Produto para entrega:</h1>
+                <br />
+                <div class="col-md-12">
+                    <div class="row">
+
+                        <div class="pb-left-column col-md-3">
+
+                            <div id="image-block" class="clearfix is_caroucel">
+                                <span id="view_full_size">
+                                    <img src="/../@Url.Content(item.ImagePath)" style="vertical-align:middle; display:block; margin-left: auto; margin-right: auto " itemprop="image" alt="" />
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="pb-center-col col-md-5">
+                            <h1 itemprop="name" style="padding-bottom:3px; color:#8d2e1e">@Html.DisplayFor(model => item.nomeProdutoU)</h1>
+                            <h2 itemprop="name">@Html.DisplayFor(model => item.DetalhesPU)</h2>
+                            <p id="product_reference">
+                                <label>@Html.DisplayNameFor(model => item.Referência)</label>
+                                <span class="editable" itemprop="sku">@Html.DisplayFor(model => item.Referência)</span>
+                            </p>
+                            <p><strong style="color: #a09d9d">Produto adquirido a</strong><strong style="color:black"> @Html.DisplayFor(model => item.DataDeCompra)</strong></p>
+                            <p><strong style="color: #a09d9d">Na Worten</strong><strong style="color:black"> @Html.DisplayFor(model => item.LocalDeCompra)</strong></p>
+                            <p><strong style="color: #a09d9d">Dias Restantes para Troca:</strong><strong style="color:black"> @Html.DisplayFor(model => item.DiasRestantes)</strong></p>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+        }
+
+
+        <hr />
+
+
+
+        @foreach (var item in Model.TrocaDiferente)
+        {
+
+            <div class="page-content product-container">
+                <h1 style="font-weight:bold">&nbsp;&nbsp;&nbsp;&nbsp; Loja para entrega:</h1>
+                <br />
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="pb-left-column col-md-3">
+                            <div id="image-block" class="clearfix is_caroucel">
+                                <span id="view_full_size">
+                                    <img src="/../../../Content/images/img-wortenentrega-1.png" style="vertical-align:middle; display:block; margin-left: auto; margin-right: auto " itemprop="image" alt="" />
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="pb-center-col col-md-5">
+                            <p><strong style="color: #a09d9d">Loja:</strong><strong style="color:black"> @Html.DisplayFor(model => item.LojaWortenDiferente)</strong></p>
+                            <p><strong style="color: #a09d9d">Data de Troca:</strong><strong style="color:black"> @Html.DisplayFor(model => item.DataDaTrocaLojaDiferente)</strong> entre as <strong style="color:black">@Html.DisplayFor(model => item.HoraDeEntregaDiferente)</strong> </p>
+                        </div>
+
+                    </div>
+                    <br />
+
+
+
+                </div>
+
+
+            </div>
+        }
+
+        <hr />
+        <h1 style="font-weight:bold">
+            &nbsp;&nbsp;&nbsp;&nbsp; <span> <img src="../../../Content/images/img-warning-1.png" height="35" width="35" /></span>&nbsp;Não se esqueça de:
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../../../Content/images/img-warning-1.png" height="35" width="35" />&nbsp;Embalar o produto pretendido para troca tal como o comprou
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../../../Content/images/img-warning-1.png" height="35" width="35" />&nbsp;De imprimir esta confirmação de troca.
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../../../Content/images/img-warning-1.png" height="35" width="35" />&nbsp;De guardar o número de troca fornecido.
+        </h1>
+
+        <div class="modal-footer">
+            <button onclick="location.href = '@Url.Action("IndexEstadoTroca", "ProdutosUtilizador")'" type="button" value="Concluir" class="btn btn-success btn-lg">Concluir</button>
+        </div>
+
+    </div>
+    <!-- END body -->
+
+</body>
+
+
+
+

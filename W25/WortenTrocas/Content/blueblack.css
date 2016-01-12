@@ -1,0 +1,105 @@
+
+
+/* Black Colour Elements */
+#topbar,
+#slider .home-reservation-box,
+#slider-full .home-reservation-box,
+.slider-caption p.dark-caption,
+#footer,
+.mobile-menu-title,
+.mobile-menu-inner,
+.dark-wrapper .text-slider ul li,
+.widget-reservation-box,
+.dark-wrapper,
+.booking-side,
+.booking-main,
+.price-details .deposit,
+.price-details .total,
+#ui-datepicker-div,
+.step-icon,
+.lightbox-title,
+#language-selection li li a,
+.room-price-widget .from,
+.room-price-widget .price-detail {
+	background: #1c1c1c;
+}
+
+
+
+/* Gold Colour Elements */
+#navigation .current-menu-item,
+#navigation .current_page_item,
+#navigation li:hover,
+blockquote,
+.button1:hover,
+.button4:hover,
+.button5:hover,
+.button2,
+.button3,
+.button6,
+#footer .button1,
+.ui-tabs .ui-tabs-nav li.ui-state-active,
+.widget-reservation-box,
+.booking-side,
+.booking-main,
+#slider .home-reservation-box,
+#slider-full .home-reservation-box,
+#ui-datepicker-div,
+.pagination-wrapper .selected,
+.pagination-wrapper a:hover,
+.wp-pagenavi .current,
+.wp-pagenavi a:hover,
+.tagcloud a:hover {
+text-align:center;
+border-color: green;
+}
+
+.slider-caption p.colour-caption,
+.button1:hover,
+.button4:hover,
+.button5:hover,
+.button2,
+.button3,
+.button6,
+#footer .button1,
+.page-content table th,
+.event-month,
+.key-selected-icon,
+.dark-notice,
+.booking-main input[type="submit"],
+.home-reservation-box input[type="submit"],
+.widget-reservation-box input[type="submit"],
+.booking-side input[type="submit"],
+.ui-datepicker-calendar tbody tr td a:hover,
+#open_datepicker .ui-datepicker-calendar .dp-highlight .ui-state-default,
+.step-icon-current,
+.pagination-wrapper .selected,
+.pagination-wrapper a:hover,
+.wp-pagenavi .current,
+.wp-pagenavi a:hover,
+.tagcloud a:hover,
+a.button0 {
+	text-align:center;
+	background: green;
+}
+
+
+/* Grey Text Elements */
+.dark-wrapper .blog-entry-inner h4 span,
+.dark-wrapper .event-entry-inner h4 span,
+.booking-side ul li span,
+.room-list-right .room-meta li span,
+.room-price .price,
+.price-breakdown-display span,
+.dark-wrapper .testimonial-author,
+.price-details .deposit,
+.price-details .total,
+.contact_details_list_dark li strong,
+.room-price-widget .from,
+.room-price-widget .price-detail,
+#footer .twitter-feed li span,
+#footer .twitter-feed li a {
+	color: red;
+}
+
+

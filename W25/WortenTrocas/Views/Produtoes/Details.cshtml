@@ -1,0 +1,114 @@
+﻿@model WortenTrocas.Models.Produto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Produto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EspecificacaoTLMTABLET.Marca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EspecificacaoTLMTABLET.Marca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EspecificacaoTLMTABLETID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EspecificacaoTLMTABLETID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Referencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Referencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Marca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Marca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stock)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoProduto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoProduto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MemoriaInterna)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MemoriaInterna)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InformacaoBas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InformacaoBas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImagePath)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProdutoID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

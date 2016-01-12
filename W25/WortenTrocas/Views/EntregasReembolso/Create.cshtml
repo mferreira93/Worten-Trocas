@@ -1,0 +1,209 @@
+﻿@model WortenTrocas.Models.EntregaReembolso
+
+@{
+    ViewBag.Title = "Criar Troca | Worten Trocas";
+    Layout = "~/Views/Shared/_Layout5.cshtml";
+}
+
+
+@Scripts.Render("~/Scripts/ScriptEntregasFinalReembolso.js")
+
+@Styles.Render("http://fonts.googleapis.com/css?family=Noto+Sans")
+@Scripts.Render("~/Content/assetsLogin/plugins/jquery-1.10.1.min.js")
+@Scripts.Render("~/Scripts/ScriptEscolherTroca.js")
+@Styles.Render("~/Content/assetsLogin/css/loginNew/flexslider.css")
+@Styles.Render("~/Content/assetsLogin/css/loginNew/prettyPhoto.css")
+@Styles.Render("~/Content/assetsLogin/css/loginNew/responsive.css")
+@Styles.Render("~/Content/assetsLogin/css/loginNew/superfish.css")
+@Styles.Render("~/Content/assetsLogin/css/loginNew/styleEntregasFinal.css")
+@Styles.Render("~/Content/footer-distributed.css")
+
+
+
+
+
+
+<!-- BEGIN body -->
+<body>
+
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- BEGIN #topbar -->
+    <div class="login-form ">
+
+        <div style="background:url(../../../Content/images/img_criartroca_2.jpg) no-repeat top center;">
+            <br />
+            <br />
+            <br />
+            <h1 id="ctrocasize" style="color:whitesmoke; opacity:0.75;">SELECCIONE UMA FORMA DE ENTREGA</h1>
+            <br />
+
+
+        </div>
+
+
+
+
+
+
+        <!-- BEGIN .content-wrapper -->
+        <div class="page-content product-container">
+            <div id="divEEC">
+
+                <a id="entregaemcasa" onclick="EntregaButton1()" style="cursor:pointer"><img src="../../../img/img-entregaemcorreio-1.png" style="vertical-align:middle; display:block; margin-left: auto; margin-right: auto " /></a>
+                <br />
+                <a id="entregaemloja" onclick="EntregaButton2()" style="cursor:pointer"><img src="../../../img/img-entregaemloja-1.jpg" style="vertical-align:middle; display:block; margin-left: auto; margin-right: auto " /></a>
+
+
+            </div>
+
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div id="entregaemcasaform" style="display:none">
+
+
+                    <!-- Modal content-->
+                    <div>
+                        <p><img src="../../../img/img-entregaemcorreio-2.png" style="vertical-align:middle; display:block; margin-left: auto; margin-right: auto " /></p>
+                        <br />
+                        <div class="modal-body">
+                            <p style="text-align:center">
+
+                                <a id="trans" onclick="trans1()" style="cursor:pointer" class=""><img src="../../../img/img-transfb-1.jpg"></a>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a id="loja" onclick="loja1()" style="cursor:pointer"><img src="../../../img/img-emloja-1.png"></a>
+                            </p>
+                            <br>
+                            <br>
+
+
+                            <div style="display:none" id="textIBAN">
+                                <p>
+                                    Morada para a qual deve enviar o seu produto:
+                                </p>
+                                <p style="font-weight: bold">Av. Nações Unidas 1600-528 Telheiras - Lisboa</p>
+                                <br />
+                                <h5 style="color:black">
+                                    IBAN: @Html.EditorFor(model => model.IBAN, new { htmlAttributes = new { @class = "form-control", @id = "devolucaodinheiroIBAN", @Style = "display:none", @placeholder = "23 dígitos" } })
+                                    @Html.EditorFor(model => model.MetodoPagamentoIBAN, new { htmlAttributes = new { @class = "form-control", @id = "devolucaodinheiroMPI", @Style = "display:none" } })
+                                </h5>
+
+                            </div>
+
+                            <div style="display:none" id="textlojas">
+                                <p>
+                                    Morada para a qual deve enviar o seu produto:
+                                </p>
+                                <p style="font-weight: bold">Av. Nações Unidas 1600-528 Telheiras - Lisboa</p>
+                                <br />
+                                <h5 style="color:black">
+                                    Morada: @Html.EditorFor(model => model.Morada, new { htmlAttributes = new { @class = "form-control", @id = "devolucaodinheiroMorada", @Style = "display:none" } })
+                                </h5>
+                                <br />
+
+                                <h5 style="color:black">
+                                    Código Postal: @Html.EditorFor(model => model.CPostal, new { htmlAttributes = new { @class = "form-control", @id = "devolucaodinheiroCP", @Style = "display:none" } })
+                                    @Html.EditorFor(model => model.MetodoPagamentoCR, new { htmlAttributes = new { @class = "form-control", @id = "devolucaodinheiroMPCR", @Style = "display:none" } })
+                                </h5>
+                            </div>
+                            <br>
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" value="Confirmar" class="btn btn-success btn-lg">Confirmar</button>
+                    </div>
+                </div>
+
+
+
+            }
+
+
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div id="entregaemlojaform" style="display:none">
+
+
+                    <div>
+                        <p><img src="../../../img/img-entregaemloja-3.jpg" style="vertical-align:middle; display:block; margin-left: auto; margin-right: auto " /></p>
+                        <br />
+
+                        <div class="form-group">
+
+
+                            <label style="font-size:18px" for="sel1">Seleccione uma loja:</label>
+                            @Html.EditorFor(model => model.LojaWortenReembolso, new { htmlAttributes = new { @class = "form-control", @id = "formChanger3", @style = "display:none" } })
+                            <select class="form-control" id="sel2" onchange="ChangeEntrega3(this)">
+
+                                <option value="">Lojas</option>
+                                <option value="Worten Amadora">Worten Amadora</option>
+                                <option value="Worten Cascais">Worten Cascais</option>
+                                <option value="Worten Colombo">Worten Colombo</option>
+                                <option value="Worten Forum Sintra">Worten Forum Sintra</option>
+                                <option value="Worten Loures">Worten Loures</option>
+                                <option value="Worten Oeiras">Worten Oeiras</option>
+                                <option value="Worten Seixal">Worten Seixal</option>
+                                <option value="Worten Telheiras">Worten Telheiras</option>
+
+                            </select>
+                        </div>
+
+                        <h6 style="font-weight:bold">
+                            Data de Entrega:
+                        </h6>
+                        <div>
+                            @Html.EditorFor(model => model.DataDaTrocaLojaReembolso, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <h6 style="font-weight:bold">Hora de Entrega:</h6>
+                            @Html.EditorFor(model => model.HoraDeEntregaReembolso, new { htmlAttributes = new { @class = "form-control", @id = "formChanger2", @style = "display:none" } })
+
+                            <select class="form-control" id="sel3" onchange="ChangeEntrega2(this)">
+
+                                <option value="">Horas disponíveis</option>
+                                <option value="9h-10h">9h-10h</option>
+                                <option value="10h-11h">10h-11h</option>
+                                <option value="11h-12h">11h-12h</option>
+                                <option value="12h-13h">12h-13h</option>
+                                <option value="13h-14h">13h-14h</option>
+                                <option value="14h-15h">14h-15h</option>
+                                <option value="15h-16h">15h-16h</option>
+                                <option value="16h-17h">16h-17h</option>
+                                <option value="17h-18h">17h-18h</option>
+                                <option value="18h-19h">18h-19h</option>
+                                <option value="19h-20h">19h-20h</option>
+
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" value="Confirmar" class="btn btn-success btn-lg">Confirmar</button>
+                    </div>
+                </div>
+
+
+
+            }
+
+        </div>
+    </div>
+
+
+</body>

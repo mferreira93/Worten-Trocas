@@ -1,0 +1,105 @@
+﻿@model IEnumerable<WortenTrocas.Models.Entrega>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RazaoTroca.MotivoAvaria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResumoTroca.ResumoTrocaID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Morada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CPostal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cidade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pais)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NTelemovel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResumoTrocaID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataDoPedido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataDaTrocaCasa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataDaTrocaLoja)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HoraDeEntrega)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LojaWorten)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RazaoTroca.MotivoAvaria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResumoTroca.ResumoTrocaID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Morada)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CPostal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cidade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pais)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NTelemovel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResumoTrocaID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataDoPedido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataDaTrocaCasa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataDaTrocaLoja)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoraDeEntrega)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LojaWorten)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EntregaID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EntregaID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EntregaID })
+        </td>
+    </tr>
+}
+
+</table>

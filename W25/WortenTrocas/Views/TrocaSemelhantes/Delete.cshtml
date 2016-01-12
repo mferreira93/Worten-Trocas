@@ -1,0 +1,80 @@
+﻿@model WortenTrocas.Models.TrocaSemelhante
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>TrocaSemelhante</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProdutoATrocar.UserID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProdutoATrocar.UserID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResumoTrocaSemelhante.ResumoTrocaSemelhanteID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResumoTrocaSemelhante.ResumoTrocaSemelhanteID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResumoTrocaSemelhanteID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResumoTrocaSemelhanteID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataDaTrocaLojaSemelhante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataDaTrocaLojaSemelhante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoraDeEntregaSemelhante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoraDeEntregaSemelhante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LojaWortenSemelhante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LojaWortenSemelhante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoTrocaSemelhante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoTrocaSemelhante)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

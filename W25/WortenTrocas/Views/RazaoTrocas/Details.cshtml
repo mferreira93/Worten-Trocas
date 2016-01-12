@@ -1,0 +1,58 @@
+﻿@model WortenTrocas.Models.RazaoTroca
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RazaoTroca</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Entrega.LocalEntrega)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Entrega.LocalEntrega)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProdutoATrocar.UserID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProdutoATrocar.UserID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EntregaID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EntregaID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MotivoAvaria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MotivoAvaria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OutroMotivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OutroMotivo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RazaoTrocaID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

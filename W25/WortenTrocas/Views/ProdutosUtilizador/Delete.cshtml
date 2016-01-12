@@ -1,0 +1,208 @@
+﻿@model WortenTrocas.Models.ProdutoUtilizador
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ProdutoUtilizador</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EntregaReembolso.MetodoPagamentoIBAN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EntregaReembolso.MetodoPagamentoIBAN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EspecificacaoTLMTABLETPU.Marca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EspecificacaoTLMTABLETPU.Marca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RazaoTroca.MotivoAvaria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RazaoTroca.MotivoAvaria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrocaDiferente.HoraDeEntregaDiferente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrocaDiferente.HoraDeEntregaDiferente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrocaSemelhante.HoraDeEntregaSemelhante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrocaSemelhante.HoraDeEntregaSemelhante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.NResolve)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.NResolve)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RazaoTrocaID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RazaoTrocaID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrocaSemelhanteID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrocaSemelhanteID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EspecificacaoTLMTABLETPUID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EspecificacaoTLMTABLETPUID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrocaDiferenteID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrocaDiferenteID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EntregaReembolsoID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EntregaReembolsoID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Referência)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Referência)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nomeProdutoU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nomeProdutoU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DetalhesPU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DetalhesPU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataDeCompra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataDeCompra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiasRestantes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiasRestantes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LocalDeCompra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocalDeCompra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstadoDaTroca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstadoDaTroca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Manual)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Manual)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Video1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Video1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Video2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Video2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImagePath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RandomGeneratedNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RandomGeneratedNumber)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

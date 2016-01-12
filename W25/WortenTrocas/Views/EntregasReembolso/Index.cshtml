@@ -1,0 +1,93 @@
+﻿@model IEnumerable<WortenTrocas.Models.EntregaReembolso>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProdutoATrocar.UserID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResumoTrocaReembolso.EntregaReembolsoID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResumoTrocaReembolsoID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataDaTrocaLojaReembolso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MetodoPagamentoIBAN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MetodoPagamentoCR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HoraDeEntregaReembolso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LojaWortenReembolso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IBAN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Morada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CPostal)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProdutoATrocar.UserID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResumoTrocaReembolso.EntregaReembolsoID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResumoTrocaReembolsoID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataDaTrocaLojaReembolso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MetodoPagamentoIBAN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MetodoPagamentoCR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoraDeEntregaReembolso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LojaWortenReembolso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IBAN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Morada)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CPostal)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EntregaReembolsoID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EntregaReembolsoID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EntregaReembolsoID })
+        </td>
+    </tr>
+}
+
+</table>

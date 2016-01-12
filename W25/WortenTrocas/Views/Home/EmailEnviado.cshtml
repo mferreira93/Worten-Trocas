@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Sucesso! | Worten Trocas";
+}
+
+@Styles.Render("~/Content/assetsLogin/css/loginNew/styleSuporte.css")
+@Styles.Render("http://fonts.googleapis.com/css?family=Noto+Sans")
+@Scripts.Render("~/Content/assetsLogin/plugins/jquery-1.10.1.min.js")
+@Scripts.Render("~/fonts/SEGOEUI.TTF")
+@Scripts.Render("~/Scripts/locations.js")
+
+@Styles.Render("~/Content/assetsLogin/css/loginNew/flexslider.css")
+@Styles.Render("~/Content/assetsLogin/css/loginNew/prettyPhoto.css")
+@Styles.Render("~/Content/assetsLogin/css/loginNew/responsive.css")
+@Styles.Render("~/Content/assetsLogin/css/loginNew/style2.css")
+@Styles.Render("~/Content/assetsLogin/css/loginNew/superfish.css")
+
+
+<div class="login-form ">
+
+    <p>
+
+    </p>
+
+    <div style="background:url(../../Content/images/img_criartroca_2.jpg) no-repeat top center;">
+        <br />
+        <br />
+        <br />
+        <br />
+        <h1 id="ctrocasize" style="color:whitesmoke; opacity:0.75;">SUPORTE </h1>
+        <br />
+        <br />
+        <br />
+
+
+    </div>
+
+
+
+
+
+
+    <!-- BEGIN .content-wrapper -->
+    <div class="page-content product-container">
+  
+  <br />
+        <div class="sa-icon sa-success animate" style="display:block">
+            <span class="sa-line sa-tip animateSuccessTip"></span>
+            <span class="sa-line sa-long animateSuccessLong"></span>
+            <div class="sa-placeholder"></div>
+        </div>
+
+        <h2 style="text-align:center">Email Enviado com sucesso!</h2>
+        <div class="sa-button-container" style=" text-align:center; vertical-align:middle; margin-left: auto; margin-right: auto">
+
+            <input id="textConcButton" onclick="window.location.href = '@Url.Action("Index", "Home")'" style="display: inline-block;" type="button" value="Retornar à página inicial" class="btn btn-success btn-lg" />
+        </div>
+        </div>
+

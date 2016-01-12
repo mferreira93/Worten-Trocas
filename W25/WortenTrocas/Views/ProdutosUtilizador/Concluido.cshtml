@@ -1,0 +1,69 @@
+﻿@model WortenTrocas.Models.ProdutoUtilizador
+
+@{
+    ViewBag.Title = "Criar Troca | Worten Trocas";
+    Layout = "~/Views/Shared/_Layout6.cshtml";
+}
+
+@Styles.Render("~/Content/assetsLogin/css/loginNew/styleAvariaConcluido.css")
+@Styles.Render("http://fonts.googleapis.com/css?family=Noto+Sans")
+@Scripts.Render("~/Content/assetsLogin/plugins/jquery-1.10.1.min.js")
+@Scripts.Render("~/fonts/SEGOEUI.TTF")
+@Scripts.Render("~/Scripts/ScriptEscolherTroca.js")
+@Styles.Render("~/Content/assetsLogin/css/loginNew/flexslider.css")
+@Styles.Render("~/Content/assetsLogin/css/loginNew/prettyPhoto.css")
+@Styles.Render("~/Content/assetsLogin/css/loginNew/responsive.css")
+@Styles.Render("~/Content/assetsLogin/css/loginNew/style2.css")
+@Styles.Render("~/Content/assetsLogin/css/loginNew/superfish.css")
+@Styles.Render("~/Content/footer-distributed.css")
+
+
+
+
+
+<!-- BEGIN body -->
+<body>
+
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- BEGIN #topbar -->
+    <div class="login-form " style="border-radius: 2px 2px 2px 2px">
+
+        <br />
+
+        <!-- BEGIN .content-wrapper -->
+        <div class="page-content product-container">
+
+            <!-- BEGIN .accommodation-listing -->
+
+            <div class="sa-icon sa-success animate" style="display:block">
+                <span class="sa-line sa-tip animateSuccessTip"></span>
+                <span class="sa-line sa-long animateSuccessLong"></span>
+                <div class="sa-placeholder"></div>
+            </div>
+
+            <h2 id="textConcHeader">O seu aparelho não se encontra avariado!</h2>
+            <div class="sa-button-container" style=" text-align:center; vertical-align:middle; margin-left: auto; margin-right: auto">
+                <h3>Para obter mais informações sobre o seu aparelho, consulte os seguintes endereços:</h3>
+
+                <h4><i class="fa fa-info"></i><a style="text-decoration:none; color:#8d2e1e; font-weight:bold" href="@Html.DisplayFor(model => model.Manual)" target=" _blank"> Manual do aparelho</a></h4>
+                <h4><i class="fa fa-info"></i><a style="text-decoration:none; color:#8d2e1e; font-weight:bold" href="@Html.DisplayFor(model => model.Video1)" target=" _blank"> Informação Adicional</a></h4>
+                @if (Model.Video2 != " ")
+                {
+                    <h4><i class="fa fa-info"></i><a style="text-decoration:none; color:#8d2e1e; font-weight:bold" href="@Html.DisplayFor(model => model.Video2)" target=" _blank"> Informação Adicional Extra</a></h4>
+                }
+    <input style="margin-top:7px" id="textConcButton" onclick="window.location.href = '@Url.Action("Index", "ProdutosUtilizador")'" style="display: inline-block;" type="button" value="Retornar à página inicial" class="btn btn-success btn-lg" />
+</div>
+            <br />
+        </div>
+
+
+    </div>
+
+    <!-- END body -->
+
+</body>
+
+
+
+

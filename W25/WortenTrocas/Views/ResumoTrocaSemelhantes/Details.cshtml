@@ -1,0 +1,26 @@
+﻿@model WortenTrocas.Models.ResumoTrocaSemelhante
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ResumoTrocaSemelhante</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TrocaSemelhante.HoraDeEntregaSemelhante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrocaSemelhante.HoraDeEntregaSemelhante)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ResumoTrocaSemelhanteID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

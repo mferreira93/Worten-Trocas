@@ -1,0 +1,26 @@
+﻿@model WortenTrocas.Models.RazaoTroca
+
+@{
+    ViewBag.Title = "Triagem - Produto Semelhante | Worten Trocas";
+}
+
+<h2>Triagem - Produto Semelhante</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <h4>Produto Semelhante</h4>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Avançar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

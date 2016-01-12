@@ -1,0 +1,119 @@
+﻿@model IEnumerable<WortenTrocas.Models.ProdutoUtilizador>
+
+@{
+    ViewBag.Title = "Estado de Troca | Worten Trocas";
+}
+
+@Styles.Render("~/Content/assetsLogin/css/loginNew/styleEstadoTroca.css")
+@Styles.Render("http://fonts.googleapis.com/css?family=Noto+Sans")
+@Scripts.Render("~/Content/assetsLogin/plugins/jquery-1.10.1.min.js")
+@Scripts.Render("~/fonts/SEGOEUI.TTF")
+@Scripts.Render("~/Scripts/ScriptEscolherTroca.js")
+@Styles.Render("~/Content/assetsLogin/css/loginNew/flexslider.css")
+@Styles.Render("~/Content/assetsLogin/css/loginNew/prettyPhoto.css")
+@Styles.Render("~/Content/assetsLogin/css/loginNew/responsive.css")
+@Styles.Render("~/Content/assetsLogin/css/loginNew/style2.css")
+@Styles.Render("~/Content/assetsLogin/css/loginNew/superfish.css")
+
+
+
+
+<!-- BEGIN body -->
+<body>
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            activaTab('tab1');
+        });
+
+        function activaTab(tab) {
+            $('.nav-tabs a[href="#' + tab + '"]').tab('show');
+        };
+
+    </script>
+
+
+    <!-- BEGIN #topbar -->
+    <div class="login-form ">
+
+
+
+        <div style="background:url(../../Content/images/img_criartroca_2.jpg) no-repeat top center;">
+            <br />
+            <br />
+            <br />
+            <br />
+            <h1 id="ctrocasize" style="color:whitesmoke; opacity:0.75;">VER ESTADO DE TROCA </h1>
+            <br />
+            <br />
+            <br />
+
+
+        </div>
+
+
+
+
+
+
+        <!-- BEGIN .content-wrapper -->
+        <div class="page-content product-container">
+            <ul id="home-page-tabs" class="nav nav-tabs clearfix">
+                <li>
+                    <a data-toggle="tab" href="#tab1">Artigos Trocados</a>
+                </li>
+
+
+
+            </ul>
+            <!-- BEGIN .accommodation-listing -->
+
+            <div class="tab-content" id="tabs">
+                <ul class="row tab-pane" id="tab1">
+
+                    @foreach (var item in Model)
+                    {
+                        if ((item.EstadoDaTroca == "Troca em processamento" || item.EstadoDaTroca == "Troca Concluída"))
+                        {
+
+
+                            <li class="col-md-4" style="cursor:pointer">
+                                <a onclick="location.href='@Url.Action("EscolherTipoTroca", "ProdutosUtilizador", new { id = item.puID })'" style=" display:block; text-decoration:none">
+
+                                    <div class="product-container">
+                                        <img src="@Url.Content(item.ImagePath)" class="img-responsive" height="100" width="100" alt="" />
+                                        <h2 style="color:#8d2e1e">@Html.DisplayFor(modelItem => item.nomeProdutoU)</h2>
+
+                                        <ul class="no-style-list">
+                                            <li><strong>Produto adquirido a</strong><strong style="color:black"> @Html.DisplayFor(modelItem => item.DetalhesPU)</strong></li>
+                                            <li><strong>Na Worten</strong><strong style="color:black"> @Html.DisplayFor(modelItem => item.DataDeCompra)</strong></li>
+                                            <li><strong>Local de troca:</strong><strong style="color:black"> Worten  @Html.DisplayFor(modelItem => item.LocalDeCompra)</strong></li>
+                                            <li><strong>Estado da Troca:</strong><strong style="color:black"> @Html.DisplayFor(modelItem => item.EstadoDaTroca)</strong></li>
+                                        </ul>
+                                    </div>
+                                </a>
+                            </li>
+
+
+
+
+                        }
+                    }
+
+                    <!-- END .accommodation-listing -->
+                </ul>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+    <!-- END body -->
+
+</body>

@@ -1,0 +1,74 @@
+﻿@model WortenTrocas.Models.TrocaDiferente
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TrocaDiferente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProdutoATrocar.UserID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProdutoATrocar.UserID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResumoTrocaDiferente.TrocaDiferenteID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResumoTrocaDiferente.TrocaDiferenteID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResumoTrocaDiferenteID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResumoTrocaDiferenteID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataDaTrocaLojaDiferente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataDaTrocaLojaDiferente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoraDeEntregaDiferente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoraDeEntregaDiferente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LojaWortenDiferente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LojaWortenDiferente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoTrocaDiferente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoTrocaDiferente)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TrocaDiferenteID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,26 @@
+﻿@model WortenTrocas.Models.ResumoTrocaReembolso
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ResumoTrocaReembolso</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EntregaReembolso.RandomGeneratedNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EntregaReembolso.RandomGeneratedNumber)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EntregaReembolsoID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

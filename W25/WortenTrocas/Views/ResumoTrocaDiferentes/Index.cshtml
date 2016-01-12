@@ -1,0 +1,33 @@
+﻿@model IEnumerable<WortenTrocas.Models.ResumoTrocaDiferente>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TrocaDiferente.HoraDeEntregaDiferente)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TrocaDiferente.HoraDeEntregaDiferente)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TrocaDiferenteID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TrocaDiferenteID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TrocaDiferenteID })
+        </td>
+    </tr>
+}
+
+</table>

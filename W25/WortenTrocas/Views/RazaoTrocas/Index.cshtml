@@ -1,0 +1,57 @@
+﻿@model IEnumerable<WortenTrocas.Models.RazaoTroca>
+
+@{
+    ViewBag.Title = "Troca | Worten Trocas";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Entrega.LocalEntrega)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProdutoATrocar.UserID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EntregaID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MotivoAvaria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OutroMotivo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Entrega.LocalEntrega)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProdutoATrocar.UserID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EntregaID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MotivoAvaria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OutroMotivo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RazaoTrocaID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RazaoTrocaID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RazaoTrocaID })
+        </td>
+    </tr>
+}
+
+</table>

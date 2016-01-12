@@ -1,0 +1,164 @@
+﻿@model IEnumerable<WortenTrocas.Models.Loja>
+
+@{
+    ViewBag.Title = "Suporte";
+}
+
+
+@Styles.Render("~/Content/assetsLogin/css/loginNew/styleSuporte.css")
+@Styles.Render("http://fonts.googleapis.com/css?family=Noto+Sans")
+@Scripts.Render("~/Content/assetsLogin/plugins/jquery-1.10.1.min.js")
+@Scripts.Render("~/fonts/SEGOEUI.TTF")
+@Scripts.Render("~/Scripts/locations.js")
+
+@Styles.Render("~/Content/assetsLogin/css/loginNew/flexslider.css")
+@Styles.Render("~/Content/assetsLogin/css/loginNew/prettyPhoto.css")
+@Styles.Render("~/Content/assetsLogin/css/loginNew/responsive.css")
+@Styles.Render("~/Content/assetsLogin/css/loginNew/style2.css")
+@Styles.Render("~/Content/assetsLogin/css/loginNew/superfish.css")
+
+<!-- BEGIN body -->
+<body>
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            activaTab('tab1');
+        });
+
+        function activaTab(tab) {
+            $('.nav-tabs a[href="#' + tab + '"]').tab('show');
+        };
+
+    </script>
+
+
+    <!-- BEGIN #topbar -->
+    <div class="login-form ">
+
+        <p>
+
+        </p>
+
+        <div style="background:url(../../Content/images/img_criartroca_2.jpg) no-repeat top center;">
+            <br />
+            <br />
+            <br />
+            <br />
+            <h1 id="ctrocasize" style="color:whitesmoke; opacity:0.75;">SUPORTE </h1>
+            <br />
+            <br />
+            <br />
+
+
+        </div>
+
+
+
+
+
+
+        <!-- BEGIN .content-wrapper -->
+        <div class="page-content product-container">
+            <ul id="home-page-tabs" class="nav nav-tabs clearfix">
+                <li>
+                    <a data-toggle="tab" href="#tab1">Lojas</a>
+                </li>
+                <li>
+                    <a data-toggle="tab"  onclick="location.href = '@Url.Action("Suporte/Email", "Home")'">Suporte por e-mail</a>
+                </li>
+                <li>
+                    <a data-toggle="tab" href="#tab3">Suporte por Skype</a>
+                </li>
+
+
+            </ul>
+            <!-- BEGIN .accommodation-listing -->
+
+
+
+            <div class="tab-content" id="tabs">
+
+
+
+                <ul class="row tab-pane" id="tab1">
+
+                    <li>
+                        <div id="map_wrapper">
+                            <div id="map_canvas" class="mapping"></div>
+                        </div>
+                    </li>
+
+
+                    <br />
+
+
+
+
+
+                    @foreach (var item in Model)
+                    {
+
+
+                        <li class="col-md-4">
+
+                            <div class="product-container">
+                                <ul class="no-style-list">
+                                    <li><strong>Worten</strong><strong style="color:black"> @Html.DisplayFor(modelItem => item.Worten)</strong></li>
+                                    <li><strong style="color:black"> @Html.DisplayFor(modelItem => item.Morada)</strong></li>
+                                    <li><strong>Latitude</strong><strong style="color:black"> @Html.DisplayFor(modelItem => item.latitude)</strong></li>
+                                    <li><strong>Longitude</strong><strong style="color:black"> @Html.DisplayFor(modelItem => item.longitude)</strong></li>
+
+
+                                </ul>
+                            </div>
+
+                        </li>
+
+                    }
+                    <!-- END .accommodation-listing -->
+                </ul>
+
+
+                <ul class="row tab-pane" id="tab2">
+
+
+                    
+
+                </ul>
+
+
+                <ul class="row tab-pane" id="tab3">
+
+
+                    <h2>Skype</h2>
+                    <p class="menu-desc">Contacte-nos através do Skype.</p>
+
+
+                    <div class="page-info container-fluid">
+
+                        <script type="text/javascript" src="http://www.skypeassets.com/i/scom/js/skype-uri.js"></script>
+                        <div id="SkypeButton_Call_wortentrocas_1" style="text-align:center">
+                            <script type="text/javascript">
+                                Skype.ui({
+                                    "name": "call",
+                                    "element": "SkypeButton_Call_wortentrocas_1",
+                                    "participants": ["wortentrocas"],
+                                    "imageSize": 32
+                                });
+                            </script>
+
+                        </div>
+
+
+
+                    </div>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- END body -->
+
+</body>

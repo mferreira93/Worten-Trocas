@@ -1,0 +1,33 @@
+﻿@model IEnumerable<WortenTrocas.Models.ResumoTrocaReembolso>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EntregaReembolso.RandomGeneratedNumber)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EntregaReembolso.RandomGeneratedNumber)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EntregaReembolsoID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EntregaReembolsoID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EntregaReembolsoID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,122 @@
+﻿@model WortenTrocas.Models.Entrega
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Entrega</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RazaoTroca.MotivoAvaria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RazaoTroca.MotivoAvaria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResumoTroca.ResumoTrocaID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResumoTroca.ResumoTrocaID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Morada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Morada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CPostal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CPostal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pais)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pais)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NTelemovel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NTelemovel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResumoTrocaID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResumoTrocaID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataDoPedido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataDoPedido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataDaTrocaCasa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataDaTrocaCasa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataDaTrocaLoja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataDaTrocaLoja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoraDeEntrega)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoraDeEntrega)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LojaWorten)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LojaWorten)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EntregaID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

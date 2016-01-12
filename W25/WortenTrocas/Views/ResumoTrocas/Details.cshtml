@@ -1,0 +1,26 @@
+﻿@model WortenTrocas.Models.ResumoTroca
+
+@{
+    ViewBag.Title = "Detalhes | Worten Trocas";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ResumoTroca</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Entrega.LocalEntrega)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Entrega.LocalEntrega)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ResumoTrocaID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

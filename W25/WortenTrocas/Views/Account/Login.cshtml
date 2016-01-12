@@ -1,0 +1,81 @@
+﻿@using WortenTrocas.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log In| Worten Trocas";
+}
+
+
+
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+@Styles.Render("~/Content/assetsLogin/css/loginNew/style.css")
+@Styles.Render("http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,300,600,700")
+@Scripts.Render("~/Content/assetsLogin/plugins/jquery-1.10.1.min.js")
+
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+
+<body>
+    
+    
+    <br />
+    <br />
+    <br />
+    <!-----start-main---->
+    <div class="login-form">
+        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" })) {
+            
+            @Html.AntiForgeryToken()
+    <h2>Com Cartão Worten Resolve</h2>
+            <br />
+        <div class="head">
+            <img src="../../Content/assetsLogin/css/loginNew/loginImages/mem2.jpg" alt="" />
+
+        </div>
+    
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    
+        <form>
+            
+            <li>
+                @Html.LabelFor(m => m.NResolve, "Número", new { @class = "col-md-2 control-label" })
+
+                @Html.TextBoxFor(m => m.NResolve, new { @class = "form-control", style = "width: 400px; max-width: 100%; border-style:solid; border-color:#AAAAAA;" })
+                @Html.ValidationMessageFor(m => m.NResolve, "", new { @class = "text-danger" })
+
+
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", style = "width: 400px; max-width: 100%;border-style:solid; border-color:#AAAAAA; " })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+
+            </li>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <div class="checkbox">
+                        @Html.CheckBoxFor(m => m.RememberMe)
+                        @Html.LabelFor(m => m.RememberMe,"Guardar Sessão?")
+                    </div>
+                    <br />
+                    <p>
+                        @Html.ActionLink("Esqueceu-se da sua password?", "ForgotPassword")
+                    </p>
+                </div>
+            </div>
+            
+       
+
+            <div class="p-container">
+                <input type="submit" onclick="myFunction()" value="Login">
+                <div class="clear"> </div>
+            </div>
+        </form>
+        }     
+    </div>
+        
+    <!--//End-login-form-->
+
+
+</body>

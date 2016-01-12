@@ -1,0 +1,258 @@
+﻿@model WortenTrocas.Models.ProdutoUtilizador
+
+@{
+    ViewBag.Title = "Criar Troca | Worten Trocas";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+@Styles.Render("~/Content/assetsLogin/css/loginNew/styleAvariaDetails.css")
+@Styles.Render("http://fonts.googleapis.com/css?family=Noto+Sans")
+@Scripts.Render("~/Content/assetsLogin/plugins/jquery-1.10.1.min.js")
+@Scripts.Render("~/fonts/SEGOEUI.TTF")
+@Scripts.Render("~/Scripts/ScriptEscolherTroca.js")
+@Styles.Render("~/Content/assetsLogin/css/loginNew/flexslider.css")
+@Styles.Render("~/Content/assetsLogin/css/loginNew/prettyPhoto.css")
+@Styles.Render("~/Content/assetsLogin/css/loginNew/responsive.css")
+@Styles.Render("~/Content/assetsLogin/css/loginNew/superfish.css")
+@Styles.Render("~/Content/footer-distributed.css")
+
+<!-- BEGIN body -->
+<body>
+
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- BEGIN #topbar -->
+    <div class="login-form ">
+
+        <div style="background:url(../../Content/images/img_criartroca_2.jpg) no-repeat top center;">
+            <br />
+            <br />
+            <br />
+            <br />
+            <h1 id="ctrocasize" style="color:whitesmoke; opacity:0.75;">DETALHES DO PRODUTO </h1>
+            <br />
+            <br />
+            <br />
+
+
+        </div>
+
+
+
+        <br />
+
+
+        <!-- BEGIN .content-wrapper -->
+        <div class="page-content product-container">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="pb-left-column col-md-3">
+                        <div id="image-block" class="clearfix is_caroucel">
+                            <span id="view_full_size">
+                                <img src="@Url.Content(Model.ImagePath)" style="vertical-align:middle; display:block; margin-left: auto; margin-right: auto " itemprop="image" alt="" />
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="pb-center-col col-md-4">
+                        <h1 itemprop="name" style="padding-bottom:3px; color:#8d2e1e">@Html.DisplayFor(model => model.nomeProdutoU)</h1>
+                        <h2 itemprop="name">@Html.DisplayFor(model => model.DetalhesPU)</h2>
+                        <p id="product_reference">
+                            <label>@Html.DisplayNameFor(model => model.Referência)</label>
+                            <span class="editable" itemprop="sku">@Html.DisplayFor(model => model.Referência)</span>
+                        </p>
+                        <p><strong style="color: #a09d9d">Produto adquirido a</strong><strong style="color:black"> @Html.DisplayFor(model => model.DataDeCompra)</strong></p>
+                        <p><strong style="color: #a09d9d">Na Worten</strong><strong style="color:black"> @Html.DisplayFor(model => model.LocalDeCompra)</strong></p>
+                        <p><strong style="color: #a09d9d">Dias Restantes para Troca:</strong><strong style="color:black"> @Html.DisplayFor(model => model.DiasRestantes)</strong></p>
+                    </div>
+
+
+                    <div class="pb-right-col col-md-5">
+                        <div class="box-info-product">
+                            <div class="product_header clearfix">
+                                <p class="our_price_display" style="text-align: center">
+                                    <span style="color:black; font-size:20px">Trocas e Devoluções</span>
+                                </p>
+                            </div>
+
+                            @if (Model.DiasRestantes > 0)
+                            {
+                                <div class="product_attributes clearfix">
+                                    <p class="our_price_display">
+                                        <span>@Html.ActionLink("Troca por um produto igual", "RazaoTrocas/TriagemAvariado", new { id = Model.puID }, new { @id = "p_avariado" })</span>
+                                    </p>
+                                </div>
+                                <div class="content_prices clearfix">
+                                    <div class="prices">
+                                        <p class="our_price_display">
+                                            <span id="our_price_display">@Html.ActionLink("Troca por um produto semelhante", "TrocaSemelhantes/Create", new { id = Model.puID }, new { @id = "p_semelhante" })</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="product_attributes clearfix">
+                                    <p class="our_price_display">
+                                        <span>@Html.ActionLink("Troca por um produto diferente", "TrocaDiferentes/Create", new { id = Model.puID }, new { @id = "p_diferente" })</span>
+                                    </p>
+                                </div>
+                                <div class="product_attributes clearfix">
+                                    <p class="our_price_display">
+                                        <span>@Html.ActionLink("Devolução do produto", "EntregasReembolso/Create", new { id = Model.puID }, new { @id = "outro_motivo" })</span>
+                                    </p>
+                                </div>
+                            }
+
+                            @if (Model.DiasRestantes < 0)
+                            {
+                                <div class="product_attributes clearfix">
+                                    <p class="our_price_display" id="p_expirado" style="text-align:justify">
+                                        Como o período de experimentação do seu produto já foi ultrapassado, a Worten Trocas já não pode
+                                        efectuar a troca do mesmo. Se pretender, pode contactar a Worten através do número <b>808 100 107</b> para mais
+                                        informações.
+                                    </p>
+                                </div>
+
+
+                            }
+                        </div>
+                    </div>
+
+                </div>
+                <br />
+
+                <section class="page-product-box">
+                    <h3 class="page-product-heading">Detalhes</h3>
+
+                    <table class="table-data-sheet">
+                        <tbody>
+                            <tr class="odd">
+                                <td>Ecrã</td>
+                                <td>@Html.DisplayFor(model => model.EspecificacaoTLMTABLETPU.Ecra)</td>
+                            </tr>
+                            <tr class="even">
+                                <td>Sistema Operativo</td>
+                                <td>@Html.DisplayFor(model => model.EspecificacaoTLMTABLETPU.SistemaOperativo)</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>Tamanho do Ecrã</td>
+                                <td>@Html.DisplayFor(model => model.EspecificacaoTLMTABLETPU.TamanhoEcra)'</td>
+                            </tr>
+                            <tr class="even">
+                                <td>Processador</td>
+                                <td>@Html.DisplayFor(model => model.EspecificacaoTLMTABLETPU.Processador) @Html.DisplayFor(model => model.EspecificacaoTLMTABLETPU.VelocidadeProcessador) GHz</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>Câmara</td>
+                                <td>@Html.DisplayFor(model => model.EspecificacaoTLMTABLETPU.Camara)</td>
+                            </tr>
+                            @if ((Model.EspecificacaoTLMTABLETPU.Camara) == true)
+                            {
+                                <tr class="even">
+                                    <td>Resolução da Câmara</td>
+                                    <td>@Html.DisplayFor(model => model.EspecificacaoTLMTABLETPU.ResCamara) MP</td>
+                                </tr>
+                            }
+                            <tr class="odd">
+                                <td>Câmara Secundária</td>
+                                <td>@Html.DisplayFor(model => model.EspecificacaoTLMTABLETPU.CanaraSecundaria)</td>
+                            </tr>
+                            @if ((Model.EspecificacaoTLMTABLETPU.CanaraSecundaria) == true)
+                            {
+                                <tr class="even">
+                                    <td>Resolução da Câmara Secundária</td>
+                                    <td>@Html.DisplayFor(model => model.EspecificacaoTLMTABLETPU.ResCamaraSecundaria) MP</td>
+                                </tr>
+                            }
+                            <tr class="odd">
+                                <td>Memória Interna</td>
+                                <td>@Html.DisplayFor(model => model.EspecificacaoTLMTABLETPU.MemoriaInterna) GB</td>
+                            </tr>
+                            <tr class="even">
+                                <td>Memória Externa</td>
+                                <td>@Html.DisplayFor(model => model.EspecificacaoTLMTABLETPU.MemoriaExterna)</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>Bateria</td>
+                                <td>@Html.DisplayFor(model => model.EspecificacaoTLMTABLETPU.Bateria)</td>
+                            </tr>
+                            <tr class="even">
+                                <td>Bluetooth</td>
+                                <td>@Html.DisplayFor(model => model.EspecificacaoTLMTABLETPU.Bluetooth)</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>GPS</td>
+                                <td>@Html.DisplayFor(model => model.EspecificacaoTLMTABLETPU.GPS)</td>
+                            </tr>
+                            <tr class="even">
+                                <td>WiFi</td>
+                                <td>@Html.DisplayFor(model => model.EspecificacaoTLMTABLETPU.WiFi)</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>Acelerómetro</td>
+                                <td>@Html.DisplayFor(model => model.EspecificacaoTLMTABLETPU.Acelerometro)</td>
+                            </tr>
+                            <tr class="even">
+                                <td>Bússola</td>
+                                <td>@Html.DisplayFor(model => model.EspecificacaoTLMTABLETPU.Bussola)</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>Sensor de Proximidade</td>
+                                <td>@Html.DisplayFor(model => model.EspecificacaoTLMTABLETPU.SensorProximidade)</td>
+                            </tr>
+                            <tr class="even">
+                                <td>Cor</td>
+                                <td>@Html.DisplayFor(model => model.EspecificacaoTLMTABLETPU.Cor)</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>Peso</td>
+                                <td>@Html.DisplayFor(model => model.EspecificacaoTLMTABLETPU.Peso) gramas</td>
+                            </tr>
+                            <tr class="even">
+                                <td>Altura</td>
+                                <td>@Html.DisplayFor(model => model.EspecificacaoTLMTABLETPU.Altura) cm</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>Largura</td>
+                                <td>@Html.DisplayFor(model => model.EspecificacaoTLMTABLETPU.Largura)</td>
+                            </tr>
+                            <tr class="even">
+                                <td>Rede</td>
+                                <td>@Html.DisplayFor(model => model.EspecificacaoTLMTABLETPU.Rede)</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>Bloqueado</td>
+                                <td>@Html.DisplayFor(model => model.EspecificacaoTLMTABLETPU.BloqueadoRede)</td>
+                            </tr>
+                            @if ((Model.EspecificacaoTLMTABLETPU.BloqueadoRede) == true)
+                            {
+                                <tr class="even">
+                                    <td>Rede de bloqueio</td>
+                                    <td>@Html.DisplayFor(model => model.EspecificacaoTLMTABLETPU.BloqueRede)</td>
+                                </tr>
+                            }
+                            <tr class="odd">
+                                <td>AudioJack</td>
+                                <td>@Html.DisplayFor(model => model.EspecificacaoTLMTABLETPU.AudioJack)</td>
+                            </tr>
+                            @if ((Model.EspecificacaoTLMTABLETPU.BloqueadoRede) == true)
+                            {
+                                <tr class="even">
+                                    <td>Tipo de AudioJack</td>
+                                    <td>@Html.DisplayFor(model => model.EspecificacaoTLMTABLETPU.AudioJackType)</td>
+                                </tr>
+                            }
+                            <tr class="odd">
+                                <td>Carregador Wireless</td>
+                                <td>@Html.DisplayFor(model => model.EspecificacaoTLMTABLETPU.CarregadorWireless)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+            </div>
+
+
+        </div>
+    </div>
+    <!-- END body -->
+
+</body>

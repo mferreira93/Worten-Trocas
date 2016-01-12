@@ -1,0 +1,779 @@
+﻿@model WortenTrocas.Models.RazaoTroca
+
+@{
+    ViewBag.Title = "Criar Troca | Worten Trocas";
+    Layout = "~/Views/Shared/_Layout4.cshtml";
+}
+
+@Styles.Render("~/Content/assetsLogin/css/loginNew/styleTriagemAvariadoImagens.css")
+@Styles.Render("~/Content/assetsLogin/css/loginNew/styleAvaria.css")
+@Styles.Render("http://fonts.googleapis.com/css?family=Noto+Sans")
+@Scripts.Render("~/Content/assetsLogin/plugins/jquery-1.10.1.min.js")
+@Scripts.Render("~/Scripts/ScriptAvaria.js")
+@Styles.Render("~/Content/footer-distributed.css")
+
+
+<body>
+
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <div class="login-form">
+
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div style="background:url(../../../Content/images/img_criartroca_2.jpg) no-repeat top center;">
+                    <br />
+                    <br />
+                    <br />
+                    <h1 id="ctrocasize" style="color:whitesmoke; opacity:0.75;">TRIAGEM DO PRODUTO</h1>
+                    <br />
+                    <br />
+
+
+                </div>
+                <br />
+
+
+                <div class="form-group" id="f0" style="display:block; text-align: center; vertical-align: middle">
+                    <div class=" col-md-offset-1 col-md-10">
+
+
+
+                        <div style="display:block">
+                            <img src="../../../Content/images/information-clipart-information-icon-hi.png" height="100" width="100" />
+                            <br />
+                        </div>
+                        <h1 style="font-weight:bold; font-size:30px">Informação</h1>
+                        <br />
+                        <p style="text-align: justify; text-justify: inter-word; color: #797979; font-weight:300;">
+                            De seguida iremos proceder à triagem do seu aparelho. Este processo tem como objectivo saber se o seu produto
+                            está realmente avariado, permitindo, desta maneira, que você poupe bastante tempo caso verifique que o seu aparelho
+                            não tem qualquer tipo de avaria. Se pretender, pode saltar este passo e proceder com o processo de troca.
+                        </p>
+
+                        <br />
+                        <br />
+                        <div style="text-align:right">
+                            <button type="submit" value="SaltarTriagem" class="btn btn-warning btn-lg">Saltar Triagem</button>
+                            <button type="button" onclick="changeDivInformação()" value="Prosseguir" class="btn btn-success btn-lg">Prosseguir</button>
+                        </div>
+                    </div>
+                </div>
+                <br />
+
+                <div class="form-group" id="f1" style="display:none; text-align: center; vertical-align: middle">
+                    <div class=" col-md-offset-1 col-md-10">
+
+
+
+                        <a id="batav1" onclick="changeDivContentBateria1()" style="cursor:pointer"><img src="../../../img/img-bat-1.jpg" /></a>
+                        <a id="batav2" onclick="changeDivContentConectividade1()" style="cursor:pointer"><img src="../../../img/img-conect-1.jpg" /></a>
+
+                        <a id="batav3" onclick="changeDivContentCamara1()" style="cursor:pointer"><img src="../../../img/img-cam-1.jpg" /></a>
+                        <a id="batav4" onclick="changeDivContentEcra1()" style="cursor:pointer"><img src="../../../img/img-ecra-1.jpg" /></a>
+                        <a id="batav5" onclick="changeDivContentSom1()" style="cursor:pointer"><img src="../../../img/img-som-1.jpg" /></a>
+                        <a id="batav6" onclick="changeDivContentHardw1()" style="cursor:pointer"><img src="../../../img/img-hardware-1.jpg" /></a>
+
+                        <a id="batav7" onclick="parent.location='@Url.Action("ProblemaNaoListado", "RazaoTrocas")'" style="cursor:pointer; display:none"><img src="../../../img/img-problema-1.jpg" style="vertical-align:middle; display:block; margin-left: auto; margin-right: auto " /></a>
+
+
+
+                    </div>
+                </div>
+
+                <div class="form-group" id="f2" style="display:none; text-align: center; vertical-align: middle">
+                    <div class="col-md-offset-1 col-md-10">
+                        <a id="solbat1" onclick="changeDivContentBateria3()" style="cursor:pointer; display:none;"><img src="../../../img/img-bat-2.jpg" style="vertical-align:middle; display:block; margin-left: auto; margin-right: auto " /></a>
+                        <p id="solbatav1" style="display:none;"><img src="../../../img/img-batav-1.jpg" /> <img src="../../../img/img-batav-2.jpg" /> </p>
+
+                        <p id="solbatav3" style="display:none;"><img src="../../../img/img-batav-3.jpg" /> <img src="../../../img/img-batav-4.jpg" /></p>
+
+                        <p id="solbatav5" style="display:none;"><img src="../../../img/img-batav-5.jpg" /> <img src="../../../img/img-batav-6.jpg" /></p>
+                        <br id="linebreakerBatV5" style="display:none;" />
+
+                        <img id="solved1" style="display:none; vertical-align:middle; margin-left: auto; margin-right: auto " src="../../../img/img-probsolv-1.png" />
+
+                        <div class="col-md-12" id="solfinal13" style=" display:none; vertical-align:middle; margin-left: auto; margin-right: auto">
+                            <input type="submit" value="Sim" class="btn btn-success"/>
+
+                            @Html.EditorFor(model => model.MotivoAvaria, new { htmlAttributes = new { @class = "form-control", @id = "MotivoAvariaBat", @Style = "display:none" } })
+
+                            <input type="button" onclick="window.location.href = '@Url.Action("Concluido", "ProdutosUtilizador")'" value="Não" class="btn btn-danger" />
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group" id="f3" style="display:none; text-align: center; vertical-align: middle">
+                    <div class="col-md-offset-1 col-md-10">
+
+                        <a id="solbat2" onclick="changeDivContentBateria4()" style="cursor: pointer; display: none;"><img src="../../../img/img-bat-3.jpg" style="vertical-align:middle; display:block; margin-left: auto; margin-right: auto " /></a>
+                        <p id="solbatav7" style="display:none;"><img src="../../../img/img-batav-7.jpg" /></p>
+                        <p id="solbatav8" style="display:none;"><img src="../../../img/img-batav-8.jpg" /></p>
+                        <p id="solbatav9" style="display:none;"><img src="../../../img/img-batav-9.jpg" /></p>
+                        <br id="linebreakerBatV8" style="display:none;" />
+
+
+                        <img id="solved2" style="display:none; vertical-align:middle; margin-left: auto; margin-right: auto " src="../../../img/img-probsolv-1.png" />
+
+                        <div class="col-md-12" id="solfinal132" style=" display:none; vertical-align:middle; margin-left: auto; margin-right: auto">
+
+
+                            <input type="submit" value="Sim" class="btn btn-success" />
+
+                            @Html.EditorFor(model => model.MotivoAvaria, new { htmlAttributes = new { @class = "form-control", @id = "MotivoAvariaBat", @Style = "display:none" } })
+
+
+
+                            <input type="button" onclick="window.location.href = '@Url.Action("Concluido", "ProdutosUtilizador")'" value="Não" class="btn btn-danger" />
+                            </div>
+                        </div>
+                </div>
+
+                <div class="form-group" id="f4" style="display:none; text-align: center; vertical-align: middle">
+                    <div class="col-md-offset-1 col-md-10">
+                        <a id="solbat3" onclick="changeDivContentBateria5()" style="cursor:pointer; display:none;"><img src="../../../img/img-bat-4.jpg" style="vertical-align:middle; display:block; margin-left: auto; margin-right: auto " /></a>
+                        <p id="solbatav10" style="display:none;"><img src="../../../img/img-batav-6.jpg" /></p>
+                        <p id="solbatav11" style="display:none;"><img src="../../../img/img-batav-10.jpg" /></p>
+                        <p id="solbatav12" style="display:none;"><img src="../../../img/img-batav-11.jpg" /></p>
+                        <br id="linebreakerBatV10" style="display:none;" />
+
+                        <img id="solved3" style="display:none; vertical-align:middle; margin-left: auto; margin-right: auto " src="../../../img/img-probsolv-1.png" />
+
+                        <div class="col-md-12" id="solfinal134" style=" display:none; vertical-align:middle; margin-left: auto; margin-right: auto">
+
+                            <input type="submit" value="Sim" class="btn btn-success" />
+
+
+                        @Html.EditorFor(model => model.MotivoAvaria, new { htmlAttributes = new { @class = "form-control", @id = "MotivoAvariaBat", @Style = "display:none" } })
+
+
+
+                            <input type="button" onclick="window.location.href = '@Url.Action("Concluido", "ProdutosUtilizador")'" value="Não" class="btn btn-danger" />
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="form-group" id="f5" style="display:none; text-align: center; vertical-align: middle">
+                    <div class="col-md-offset-1 col-md-10">
+                        <a id="solcon1" onclick="changeDivContentConectividade2()" style="cursor:pointer; display:none;"><img src="../../../img/img-conect-2.jpg" style="vertical-align:middle; display:block; margin-left: auto; margin-right: auto " /></a>
+                        <p id="solconectav1" style="display:none;"><img src="../../../img/img-conectav-1.jpg" /> <img src="../../../img/img-conectav-2.jpg" /></p>
+                        <p id="solconectav3" style="display:none;"><img src="../../../img/img-conectav-3.jpg" /> <img src="../../../img/img-conectav-4.jpg" /></p>
+                        <p id="solconectav5" style="display:none;"><img src="../../../img/img-conectav-5.jpg" /></p>
+                        <br id="linebreakerConV4" style="display:none;" />
+
+                        <img id="solved4" style="display:none; vertical-align:middle; margin-left: auto; margin-right: auto " src="../../../img/img-probsolv-1.png" />
+
+                        <div class="col-md-12" id="solfinal136" style=" display:none; vertical-align:middle; margin-left: auto; margin-right: auto">
+
+                            <input type="submit" value="Sim" class="btn btn-success" />
+
+
+                        @Html.EditorFor(model => model.MotivoAvaria, new { htmlAttributes = new { @class = "form-control", @id = "MotivoAvariaBat", @Style = "display:none" } })
+
+
+
+                            <input type="button" onclick="window.location.href = '@Url.Action("Concluido", "ProdutosUtilizador")'" value="Não" class="btn btn-danger" />
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group" id="f6" style="display:none; text-align: center; vertical-align: middle">
+                    <div class="col-md-offset-1 col-md-10">
+                        <a id="solcon2" onclick="changeDivContentConectividade3()" style="cursor:pointer; display:none;"><img src="../../../img/img-conect-3.jpg" style="vertical-align:middle; display:block; margin-left: auto; margin-right: auto " /></a>
+                        <p id="solconectav6" style="display:none;"><img src="../../../img/img-conectav-1.jpg" /> <img src="../../../img/img-conectav-2.jpg" /></p>
+
+                        <p id="solconectav8" style="display:none;"><img src="../../../img/img-conectav-4.jpg" /> <img src="../../../img/img-conectav-3.jpg" /></p>
+                        <br id="linebreakerConV7" style="display:none;" />
+
+                        <img id="solved5" style="display:none; vertical-align:middle; margin-left: auto; margin-right: auto " src="../../../img/img-probsolv-1.png" />
+
+                        <div class="col-md-12" id="solfinal138" style=" display:none; vertical-align:middle; margin-left: auto; margin-right: auto">
+
+                            <input type="submit" value="Sim" class="btn btn-success"/>
+
+                        @Html.EditorFor(model => model.MotivoAvaria, new { htmlAttributes = new { @class = "form-control", @id = "MotivoAvariaBat", @Style = "display:none" } })
+
+                            <input type="button" onclick="window.location.href = '@Url.Action("Concluido", "ProdutosUtilizador")'" value="Não" class="btn btn-danger" />
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" id="f7" style="display:none; text-align: center; vertical-align: middle">
+                    <div class="col-md-offset-1 col-md-10">
+                        <a id="solcon3" onclick="changeDivContentConectividade4()" style="cursor:pointer; display:none;"><img src="../../../img/img-conect-4.jpg" style="vertical-align:middle; display:block; margin-left: auto; margin-right: auto " /></a>
+                        <p id="solconectav10" style="display:none;"><img src="../../../img/img-conectav-6.jpg" /> <img src="../../../img/img-conectav-11.jpg" /></p>
+                        <p id="solconectav12" style="display:none;"><img src="../../../img/img-conectav-7.jpg" /> <img src="../../../img/img-conectav-8.jpg" /></p>
+                        <p id="solconectav14" style="display:none;"><img src="../../../img/img-conectav-9.jpg" /></p>
+                        <br id="linebreakerConV11" style="display:none;" />
+
+                        
+                        <img id="solved6" style="display:none; vertical-align:middle; margin-left: auto; margin-right: auto " src="../../../img/img-probsolv-1.png" />
+
+                        <div class="col-md-12" id="solfinal140" style=" display:none; vertical-align:middle; margin-left: auto; margin-right: auto">
+
+                            <input type="submit" value="Sim" class="btn btn-success"/>
+
+
+                        @Html.EditorFor(model => model.MotivoAvaria, new { htmlAttributes = new { @class = "form-control", @id = "MotivoAvariaBat", @Style = "display:none" } })
+
+                            <input type="button" onclick="window.location.href = '@Url.Action("Concluido", "ProdutosUtilizador")'" value="Não" class="btn btn-danger" />
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" id="f8" style="display:none; text-align: center; vertical-align: middle">
+                    <div class="col-md-offset-1 col-md-10">
+                        <a id="solcon4" onclick="changeDivContentConectividade5()" style="cursor:pointer; display:none;"><img src="../../../img/img-conect-5.jpg" style="vertical-align:middle; display:block; margin-left: auto; margin-right: auto " /></a>
+                        <p id="solconectav15" style="display:none;"><img src="../../../img/img-conectav-6.jpg" /> <img src="../../../img/img-conectav-11.jpg" /></p>
+                        <p id="solconectav17" style="display:none;"><img src="../../../img/img-conectav-7.jpg" /> <img src="../../../img/img-conectav-8.jpg" /></p>
+                        <p id="solconectav19" style="display:none;"><img src="../../../img/img-conectav-9.jpg" /></p>
+                        <br id="linebreakerConV15" style="display:none;" />
+
+                        <img id="solved7" style="display:none; vertical-align:middle; margin-left: auto; margin-right: auto " src="../../../img/img-probsolv-1.png" />
+
+                        <div class="col-md-12" id="solfinal142" style=" display:none; vertical-align:middle; margin-left: auto; margin-right: auto">
+
+                            <input type="submit" value="Sim" class="btn btn-success"/>
+
+                        @Html.EditorFor(model => model.MotivoAvaria, new { htmlAttributes = new { @class = "form-control", @id = "MotivoAvariaBat", @Style = "display:none" } })
+                        
+                            <input type="button" onclick="window.location.href = '@Url.Action("Concluido", "ProdutosUtilizador")'" value="Não" class="btn btn-danger" />
+
+                        
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" id="f9" style="display:none; text-align: center; vertical-align: middle">
+                    <div class="col-md-offset-1 col-md-10">
+                        <a id="solcon5" onclick="changeDivContentConectividade6()" style="cursor:pointer; display:none;"><img src="../../../img/img-conect-6.jpg" style="vertical-align:middle; display:block; margin-left: auto; margin-right: auto " /></a>
+                        <p id="solconectav20" style="display:none;"><img src="../../../img/img-conectav-1.jpg" /></p>
+                        <p id="solconectav21" style="display:none;"><img src="../../../img/img-conectav-14.jpg" /></p>
+                        <p id="solconectav22" style="display:none;"><img src="../../../img/img-conectav-5.jpg" /></p>
+                        <br id="linebreakerConV17" style="display:none;" />
+
+                        <img id="solved8" style="display:none; vertical-align:middle; margin-left: auto; margin-right: auto " src="../../../img/img-probsolv-1.png" />
+
+                        <div class="col-md-12" id="solfinal144" style=" display:none; vertical-align:middle; margin-left: auto; margin-right: auto">
+
+                            <input type="submit" value="Sim" class="btn btn-success"/>
+
+                        
+
+                        @Html.EditorFor(model => model.MotivoAvaria, new { htmlAttributes = new { @class = "form-control", @id = "MotivoAvariaBat", @Style = "display:none" } })
+
+
+
+                        
+                            <input type="button" onclick="window.location.href = '@Url.Action("Concluido", "ProdutosUtilizador")'" value="Não" class="btn btn-danger" />
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" id="f10" style="display:none; text-align: center; vertical-align: middle">
+                    <div class="col-md-offset-1 col-md-10">
+                        <a id="solcon6" onclick="changeDivContentConectividade7()" style="cursor:pointer; display:none;"><img src="../../../img/img-conect-7.jpg" style="vertical-align:middle; display:block; margin-left: auto; margin-right: auto " /></a>
+                        <p id="solconectav23" style="display:none;"><img src="../../../img/img-conectav-12.jpg" /></p>
+                        <p id="solconectav24" style="display:none;"><img src="../../../img/img-conectav-13.jpg" /></p>
+                        <p id="solconectav25" style="display:none;"><img src="../../../img/img-conectav-15.jpg" /></p>
+                        <br id="linebreakerConV19" style="display:none;" />
+
+
+                        <img id="solved9" style="display:none; vertical-align:middle; margin-left: auto; margin-right: auto " src="../../../img/img-probsolv-1.png" />
+
+                        <div class="col-md-12" id="solfinal146" style=" display:none; vertical-align:middle; margin-left: auto; margin-right: auto">
+
+                            <input type="submit" value="Sim" class="btn btn-success"/>
+
+                        
+
+                        @Html.EditorFor(model => model.MotivoAvaria, new { htmlAttributes = new { @class = "form-control", @id = "MotivoAvariaBat", @Style = "display:none" } })
+
+
+
+                        
+                            <input type="button" onclick="window.location.href = '@Url.Action("Concluido", "ProdutosUtilizador")'" value="Não" class="btn btn-danger" />
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" id="f11" style="display:none; text-align: center; vertical-align: middle">
+                    <div class="col-md-offset-1 col-md-10">
+                        <a id="solcam1" onclick="changeDivContentCamara2()" style="cursor:pointer; display:none;"><img src="../../../img/img-cam-2.jpg" style="vertical-align:middle; display:block; margin-left: auto; margin-right: auto " /></a>
+                        <p id="solcamav1" style="display:none;"><img src="../../../img/img-camav-1.jpg" /></p>
+                        <p id="solcamav2" style="display:none;"><img src="../../../img/img-camav-2.jpg" /></p>
+                        <p id="solcamav3" style="display:none;"><img src="../../../img/img-camav-3.jpg" /></p>
+                        <br id="linebreakerCamV2" style="display:none;" />
+
+
+                        <img id="solved10" style="display:none; vertical-align:middle; margin-left: auto; margin-right: auto " src="../../../img/img-probsolv-1.png" />
+
+                        <div class="col-md-12" id="solfinal148" style=" display:none; vertical-align:middle; margin-left: auto; margin-right: auto">
+
+                            <input type="submit" value="Sim" class="btn btn-success"/>
+
+                        
+
+                        @Html.EditorFor(model => model.MotivoAvaria, new { htmlAttributes = new { @class = "form-control", @id = "MotivoAvariaBat", @Style = "display:none" } })
+
+
+
+                        
+                            <input type="button" onclick="window.location.href = '@Url.Action("Concluido", "ProdutosUtilizador")'" value="Não" class="btn btn-danger" />
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" id="f12" style="display:none; text-align: center; vertical-align: middle">
+                    <div class="col-md-offset-1 col-md-10">
+                        <a id="solcam2" onclick="changeDivContentCamara3()" style="cursor:pointer; display:none;"><img src="../../../img/img-cam-3.jpg" style="vertical-align:middle; display:block; margin-left: auto; margin-right: auto " /></a>
+                        <p id="solcamav4" style="display:none;"><img src="../../../img/img-camav-1.jpg" /> <img src="../../../img/img-camav-2.jpg" /></p>
+                        <p id="solcamav6" style="display:none;"><img src="../../../img/img-camav-4.jpg" /> <img src="../../../img/img-camav-6.jpg" /></p>
+                        <br id="linebreakerCamV5" style="display:none;" />
+
+                        <img id="solved11" style="display:none; vertical-align:middle; margin-left: auto; margin-right: auto " src="../../../img/img-probsolv-1.png" />
+
+                        <div class="col-md-12" id="solfinal150" style=" display:none; vertical-align:middle; margin-left: auto; margin-right: auto">
+
+                            <input type="submit" value="Sim" class="btn btn-success"/>
+
+                        
+
+                        @Html.EditorFor(model => model.MotivoAvaria, new { htmlAttributes = new { @class = "form-control", @id = "MotivoAvariaBat", @Style = "display:none" } })
+
+
+
+                        
+                            <input type="button" onclick="window.location.href = '@Url.Action("Concluido", "ProdutosUtilizador")'" value="Não" class="btn btn-danger" />
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" id="f13" style="display:none; text-align: center; vertical-align: middle">
+                    <div class="col-md-offset-1 col-md-10">
+                        <a id="solcam3" onclick="changeDivContentCamara4()" style="cursor:pointer; display:none;"><img src="../../../img/img-cam-4.jpg" style="vertical-align:middle; display:block; margin-left: auto; margin-right: auto " /></a>
+                        <p id="solcamav8" style="display:none;">-<img src="../../../img/img-camav-1.jpg" /></p>
+                        <p id="solcamav9" style="display:none;"><img src="../../../img/img-camav-7.jpg" /></p>
+                        <p id="solcamav10" style="display:none;"><img src="../../../img/img-camav-8.jpg" /></p>
+                        <br id="linebreakerCamV7" style="display:none;" />
+
+                        <img id="solved12" style="display:none; vertical-align:middle; margin-left: auto; margin-right: auto " src="../../../img/img-probsolv-1.png" />
+
+                        <div class="col-md-12" id="solfinal152" style=" display:none; vertical-align:middle; margin-left: auto; margin-right: auto">
+
+                            <input type="submit" value="Sim" class="btn btn-success"/>
+
+                        
+
+                        @Html.EditorFor(model => model.MotivoAvaria, new { htmlAttributes = new { @class = "form-control", @id = "MotivoAvariaBat", @Style = "display:none" } })
+
+
+
+
+                            <input type="button" onclick="window.location.href = '@Url.Action("Concluido", "ProdutosUtilizador")'" value="Não" class="btn btn-danger" />
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" id="f14" style="display:none; text-align: center; vertical-align: middle">
+                    <div class="col-md-offset-1 col-md-10">
+                        <a id="solecr1" onclick="changeDivContentEcra2()" style="cursor:pointer; display:none;"><img src="../../../img/img-ecra-2.jpg" style="vertical-align:middle; display:block; margin-left: auto; margin-right: auto " /></a>
+                        <p id="solecrav1" style="display:none;"><img src="../../../img/img-ecrav-1.jpg" /></p>
+                        <p id="solecrav2" style="display:none;"><img src="../../../img/img-ecrav-2.jpg" /></p>
+                        <br id="linebreakerecrV1" style="display:none;" />
+
+                        <img id="solved13" style="display:none; vertical-align:middle; margin-left: auto; margin-right: auto " src="../../../img/img-probsolv-1.png" />
+
+                        <div class="col-md-12" id="solfinal154" style=" display:none; vertical-align:middle; margin-left: auto; margin-right: auto">
+
+                            <input type="submit" value="Sim" class="btn btn-success"/>
+
+                        
+
+                        @Html.EditorFor(model => model.MotivoAvaria, new { htmlAttributes = new { @class = "form-control", @id = "MotivoAvariaBat", @Style = "display:none" } })
+
+
+
+                        
+                            <input type="button" onclick="window.location.href = '@Url.Action("Concluido", "ProdutosUtilizador")'" value="Não" class="btn btn-danger" />
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" id="f15" style="display:none; text-align: center; vertical-align: middle">
+                    <div class="col-md-offset-1 col-md-10">
+                        <a id="solecr2" onclick="changeDivContentEcra3()" style="cursor:pointer; display:none;"><img src="../../../img/img-ecra-3.jpg" style="vertical-align:middle; display:block; margin-left: auto; margin-right: auto " /></a>
+                        <p id="solecrav3" style="display:none;"><img src="../../../img/img-ecrav-1.jpg" /></p>
+                        <p id="solecrav4" style="display:none;"><img src="../../../img/img-ecrav-3.jpg" /></p>
+                        <br id="linebreakerecrV2" style="display:none;" />
+
+                        <img id="solved14" style="display:none; vertical-align:middle; margin-left: auto; margin-right: auto " src="../../../img/img-probsolv-1.png" />
+
+                        <div class="col-md-12" id="solfinal156" style=" display:none; vertical-align:middle; margin-left: auto; margin-right: auto">
+
+                            <input type="submit" value="Sim" class="btn btn-success"/>
+
+                        
+
+                        @Html.EditorFor(model => model.MotivoAvaria, new { htmlAttributes = new { @class = "form-control", @id = "MotivoAvariaBat", @Style = "display:none" } })
+
+
+
+
+                            <input type="button" onclick="window.location.href = '@Url.Action("Concluido", "ProdutosUtilizador")'" value="Não" class="btn btn-danger" />
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" id="f16" style="display:none; text-align: center; vertical-align: middle">
+                    <div class="col-md-offset-1 col-md-10">
+                        <a id="solecr3" onclick="changeDivContentEcra4()" style="cursor:pointer; display:none;"><img src="../../../img/img-ecra-4.jpg" style="vertical-align:middle; display:block; margin-left: auto; margin-right: auto " /></a>
+                        <p id="solecrav5" style="display:none;"><img src="../../../img/img-ecrav-1.jpg" /></p>
+                        <p id="solecrav6" style="display:none;"><img src="../../../img/img-ecrav-4.jpg" /></p>
+                        <br id="linebreakerecrV3" style="display:none;" />
+
+
+                        <img id="solved15" style="display:none; vertical-align:middle; margin-left: auto; margin-right: auto " src="../../../img/img-probsolv-1.png" />
+
+                        <div class="col-md-12" id="solfinal158" style=" display:none; vertical-align:middle; margin-left: auto; margin-right: auto">
+
+                            <input type="submit" value="Sim" class="btn btn-success"/>
+
+                        
+
+                        @Html.EditorFor(model => model.MotivoAvaria, new { htmlAttributes = new { @class = "form-control", @id = "MotivoAvariaBat", @Style = "display:none" } })
+
+
+
+
+                            <input type="button" onclick="window.location.href = '@Url.Action("Concluido", "ProdutosUtilizador")'" value="Não" class="btn btn-danger" />
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" id="f17" style="display:none; text-align: center; vertical-align: middle">
+                    <div class="col-md-offset-1 col-md-10">
+                        <a id="solecr4" onclick="changeDivContentEcra5()" style="cursor:pointer; display:none;"><img src="../../../img/img-ecra-5.jpg" style="vertical-align:middle; display:block; margin-left: auto; margin-right: auto " /></a>
+                        <p id="solecrav7" style="display:none;"><img src="../../../img/img-ecrav-1.jpg" /></p>
+                        <p id="solecrav8" style="display:none;"><img src="../../../img/img-ecrav-5.jpg" /></p>
+                        <br id="linebreakerecrV4" style="display:none;" />
+
+                        <img id="solved16" style="display:none; vertical-align:middle; margin-left: auto; margin-right: auto " src="../../../img/img-probsolv-1.png" />
+
+                        <div class="col-md-12" id="solfinal160" style=" display:none; vertical-align:middle; margin-left: auto; margin-right: auto">
+
+
+                            <input type="submit" value="Sim" class="btn btn-success"/>
+
+                        
+
+                        @Html.EditorFor(model => model.MotivoAvaria, new { htmlAttributes = new { @class = "form-control", @id = "MotivoAvariaBat", @Style = "display:none" } })
+
+
+
+                        
+                            <input type="button" onclick="window.location.href = '@Url.Action("Concluido", "ProdutosUtilizador")'" value="Não" class="btn btn-danger" />
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" id="f18" style="display:none; text-align: center; vertical-align: middle">
+                    <div class="col-md-offset-1 col-md-10">
+                        <a id="solecr5" onclick="changeDivContentEcra6()" style="cursor:pointer; display:none;"><img src="../../../img/img-ecra-6.jpg" style="vertical-align:middle; display:block; margin-left: auto; margin-right: auto " /></a>
+                        <p id="solecrav9" style="display:none;"><img src="../../../img/img-ecrav-1.jpg" /></p>
+                        <p id="solecrav10" style="display:none;"><img src="../../../img/img-ecrav-5.jpg" /></p>
+                        <br id="linebreakerecrV5" style="display:none;" />
+
+                        <img id="solved17" style="display:none; vertical-align:middle; margin-left: auto; margin-right: auto " src="../../../img/img-probsolv-1.png" />
+
+                        <div class="col-md-12" id="solfinal162" style=" display:none; vertical-align:middle; margin-left: auto; margin-right: auto">
+
+                            <input type="submit" value="Sim" class="btn btn-success"/>
+
+                        
+
+                        @Html.EditorFor(model => model.MotivoAvaria, new { htmlAttributes = new { @class = "form-control", @id = "MotivoAvariaBat", @Style = "display:none" } })
+
+
+
+                        
+                            <input type="button" onclick="window.location.href = '@Url.Action("Concluido", "ProdutosUtilizador")'" value="Não" class="btn btn-danger" />
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" id="f19" style="display:none; text-align: center; vertical-align: middle">
+                    <div class="col-md-offset-1 col-md-10">
+                        <a id="solsom1" onclick="changeDivContentSom2()" style="cursor:pointer; display:none;"><img src="../../../img/img-som-2.jpg" style="vertical-align:middle; display:block; margin-left: auto; margin-right: auto " /></a>
+                        <p id="solesomav1" style="display:none;"><img src="../../../img/img-somava-1.jpg" /></p>
+                        <p id="solesomav2" style="display:none;"><img src="../../../img/img-somava-2.jpg" /></p>
+                        <br id="linebreakersomV1" style="display:none;" />
+
+                        <img id="solved18" style="display:none; vertical-align:middle; margin-left: auto; margin-right: auto " src="../../../img/img-probsolv-1.png" />
+
+                        <div class="col-md-12" id="solfinal164" style=" display:none; vertical-align:middle; margin-left: auto; margin-right: auto">
+
+                            <input type="submit" value="Sim" class="btn btn-success"/>
+
+                        
+
+                        @Html.EditorFor(model => model.MotivoAvaria, new { htmlAttributes = new { @class = "form-control", @id = "MotivoAvariaBat", @Style = "display:none" } })
+
+
+
+
+                            <input type="button" onclick="window.location.href = '@Url.Action("Concluido", "ProdutosUtilizador")'" value="Não" class="btn btn-danger" />
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" id="f20" style="display:none; text-align: center; vertical-align: middle">
+                    <div class="col-md-offset-1 col-md-10">
+                        <a id="solsom2" onclick="changeDivContentSom3()" style="cursor:pointer; display:none;"><img src="../../../img/img-som-3.jpg" style="vertical-align:middle; display:block; margin-left: auto; margin-right: auto " /></a>
+                        <p id="solesomav3" style="display:none;"><img src="../../../img/img-somava-3.jpg" /></p>
+                        <p id="solesomav4" style="display:none;"><img src="../../../img/img-somava-4.jpg" /></p>
+                        <br id="linebreakersomV2" style="display:none;" />
+
+                        <img id="solved19" style="display:none; vertical-align:middle; margin-left: auto; margin-right: auto " src="../../../img/img-probsolv-1.png" />
+
+                        <div class="col-md-12" id="solfinal166" style=" display:none; vertical-align:middle; margin-left: auto; margin-right: auto">
+
+                            <input type="submit" value="Sim" class="btn btn-success"/>
+
+                        
+
+                        @Html.EditorFor(model => model.MotivoAvaria, new { htmlAttributes = new { @class = "form-control", @id = "MotivoAvariaBat", @Style = "display:none" } })
+
+
+
+                        
+                            <input type="button" onclick="window.location.href = '@Url.Action("Concluido", "ProdutosUtilizador")'" value="Não" class="btn btn-danger" />
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" id="f21" style="display:none; text-align: center; vertical-align: middle">
+                    <div class="col-md-offset-1 col-md-10">
+                        <a id="solsom3" onclick="changeDivContentSom4()" style="cursor:pointer; display:none;"><img src="../../../img/img-som-4.jpg" style="vertical-align:middle; display:block; margin-left: auto; margin-right: auto " /></a>
+                        <p id="solesomav5" style="display:none;"><img src="../../../img/img-somava-1.jpg" /> <img src="../../../img/img-somava-5.jpg" /></p>
+                        <p id="solesomav7" style="display:none;"><img src="../../../img/img-somava-6.jpg" /> <img src="../../../img/img-somava-7.jpg" /></p>
+                        <br id="linebreakersomV5" style="display:none;" />
+
+                        <img id="solved20" style="display:none; vertical-align:middle; margin-left: auto; margin-right: auto " src="../../../img/img-probsolv-1.png" />
+
+                        <div class="col-md-12" id="solfinal168" style=" display:none; vertical-align:middle; margin-left: auto; margin-right: auto">
+
+                            <input type="submit" value="Sim" class="btn btn-success"/>
+
+                        
+
+                        @Html.EditorFor(model => model.MotivoAvaria, new { htmlAttributes = new { @class = "form-control", @id = "MotivoAvariaBat", @Style = "display:none" } })
+
+
+
+                        
+                            <input type="button" onclick="window.location.href = '@Url.Action("Concluido", "ProdutosUtilizador")'" value="Não" class="btn btn-danger" />
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" id="f22" style="display:none; text-align: center; vertical-align: middle">
+                    <div class="col-md-offset-1 col-md-10">
+                        <a id="solsom4" onclick="changeDivContentSom5()" style="cursor:pointer; display:none;"><img src="../../../img/img-som-5.jpg" style="vertical-align:middle; display:block; margin-left: auto; margin-right: auto " /></a>
+                        <p id="solesomav9" style="display:none;"><img src="../../../img/img-somava-3.jpg" /></p>
+                        <p id="solesomav10" style="display:none;"><img src="../../../img/img-somava-8.jpg" /></p>
+                        <br id="linebreakersomV6" style="display:none;" />
+
+                        <img id="solved21" style="display:none; vertical-align:middle; margin-left: auto; margin-right: auto " src="../../../img/img-probsolv-1.png" />
+
+                        <div class="col-md-12" id="solfinal170" style=" display:none; vertical-align:middle; margin-left: auto; margin-right: auto">
+
+
+                            <input type="submit" value="Sim" class="btn btn-success"/>
+
+                        
+
+                        @Html.EditorFor(model => model.MotivoAvaria, new { htmlAttributes = new { @class = "form-control", @id = "MotivoAvariaBat", @Style = "display:none" } })
+
+
+
+
+                            <input type="button" onclick="window.location.href = '@Url.Action("Concluido", "ProdutosUtilizador")'" value="Não" class="btn btn-danger" />
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" id="f23" style="display:none; text-align: center; vertical-align: middle">
+                    <div class="col-md-offset-1 col-md-10">
+                        <a id="solhardw1" onclick="changeDivContentHardw2()" style="cursor:pointer; display:none;"><img src="../../../img/img-hardware-2.jpg" style="vertical-align:middle; display:block; margin-left: auto; margin-right: auto " /></a>
+                        <p id="solehardwv1" style="display:none;"><img src="../../../img/img-hardwareava-1.jpg" /></p>
+                        <p id="solehardwv2" style="display:none;"><img src="../../../img/img-hardwareava-2.jpg" /></p>
+                        <br id="linebreakerhardwV1" style="display:none;" />
+
+                        <img id="solved22" style="display:none; vertical-align:middle; margin-left: auto; margin-right: auto " src="../../../img/img-probsolv-1.png" />
+
+                        <div class="col-md-12" id="solfinal172" style=" display:none; vertical-align:middle; margin-left: auto; margin-right: auto">
+
+                            <input type="submit" value="Sim" class="btn btn-success"/>
+
+                        
+
+                        @Html.EditorFor(model => model.MotivoAvaria, new { htmlAttributes = new { @class = "form-control", @id = "MotivoAvariaBat", @Style = "display:none" } })
+
+
+
+                        
+                            <input type="button" onclick="window.location.href = '@Url.Action("Concluido", "ProdutosUtilizador")'" value="Não" class="btn btn-danger" />
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group" id="f24" style="display:none; text-align: center; vertical-align: middle">
+                    <div class="col-md-offset-1 col-md-10">
+                        <a id="solhardw2" onclick="changeDivContentHardw3()" style="cursor:pointer; display:none;"><img src="../../../img/img-hardware-3.jpg" style="vertical-align:middle; display:block; margin-left: auto; margin-right: auto " /></a>
+                        <p id="solehardwv3" style="display:none;"><img src="../../../img/img-hardwareava-3.jpg" /></p>
+                        <p id="solehardwv4" style="display:none;"><img src="../../../img/img-hardwareava-4.jpg" /></p>
+                        <p id="solehardwv5" style="display:none;"><img src="../../../img/img-hardwareava-5.jpg" /></p>
+                        <br id="linebreakerhardwV3" style="display:none;" />
+
+                        <img id="solved23" style="display:none; vertical-align:middle; margin-left: auto; margin-right: auto " src="../../../img/img-probsolv-1.png" />
+
+                        <div class="col-md-12" id="solfinal174" style=" display:none; vertical-align:middle; margin-left: auto; margin-right: auto">
+
+
+                            <input type="submit" value="Sim" class="btn btn-success"/>
+
+                        
+
+                        @Html.EditorFor(model => model.MotivoAvaria, new { htmlAttributes = new { @class = "form-control", @id = "MotivoAvariaBat", @Style = "display:none" } })
+
+
+
+                        
+                            <input type="button" onclick="window.location.href = '@Url.Action("Concluido", "ProdutosUtilizador")'" value="Não" class="btn btn-danger" />
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" id="f25" style="display:none; text-align: center; vertical-align: middle">
+                    <div class="col-md-offset-1 col-md-10">
+                        <a id="solhardw3" onclick="changeDivContentHardw4()" style="cursor:pointer; display:none;"><img src="../../../img/img-hardware-4.jpg" style="vertical-align:middle; display:block; margin-left: auto; margin-right: auto " /></a>
+                        <p id="solehardwv6" style="display:none;"><img src="../../../img/img-hardwareava-6.jpg" /></p>
+                        <p id="solehardwv7" style="display:none;"><img src="../../../img/img-hardwareava-7.jpg" /></p>
+                        <p id="solehardwv8" style="display:none;"><img src="../../../img/img-hardwareava-8.jpg" /></p>
+                        <br id="linebreakerhardwV5" style="display:none;" />
+
+                        <img id="solved24" style="display:none; vertical-align:middle; margin-left: auto; margin-right: auto " src="../../../img/img-probsolv-1.png" />
+
+                        <div class="col-md-12" id="solfinal176" style=" display:none; vertical-align:middle; margin-left: auto; margin-right: auto">
+
+                            <input type="submit" value="Sim" class="btn btn-success"/>
+
+                        
+
+                        @Html.EditorFor(model => model.MotivoAvaria, new { htmlAttributes = new { @class = "form-control", @id = "MotivoAvariaBat", @Style = "display:none" } })
+
+
+
+
+                            <input type="button" onclick="window.location.href = '@Url.Action("Concluido", "ProdutosUtilizador")'" value="Não" class="btn btn-danger" />
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" id="f26" style="display:none; text-align: center; vertical-align: middle">
+                    <div class="col-md-offset-1 col-md-10">
+                        <a id="solhardw4" onclick="changeDivContentHardw5()" style="cursor:pointer; display:none;"><img src="../../../img/img-hardware-5.jpg" style="vertical-align:middle; display:block; margin-left: auto; margin-right: auto " /></a>
+                        <p id="solehardwv9" style="display:none;"><img src="../../../img/img-hardwareava-9.jpg" /> <img src="../../../img/img-hardwareava-10.jpg" /></p>
+                        <p id="solehardwv11" style="display:none;"><img src="../../../img/img-hardwareava-11.jpg" /> <img src="../../../img/img-hardwareava-12.jpg" /></p>
+                        <br id="linebreakerhardwV8" style="display:none;" />
+
+
+                        <img id="solved25" style="display:none; vertical-align:middle; margin-left: auto; margin-right: auto " src="../../../img/img-probsolv-1.png" />
+
+                        <div class="col-md-12" id="solfinal178" style=" display:none; vertical-align:middle; margin-left: auto; margin-right: auto">
+
+                            <input type="submit" value="Sim" class="btn btn-success"/>
+
+                        
+
+                        @Html.EditorFor(model => model.MotivoAvaria, new { htmlAttributes = new { @class = "form-control", @id = "MotivoAvariaBat", @Style = "display:none" } })
+
+
+
+
+                            <input type="button" onclick="window.location.href = '@Url.Action("Concluido", "ProdutosUtilizador")'" value="Não" class="btn btn-danger" />
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" id="f27" style="display:none; text-align: center; vertical-align: middle">
+                    <div class="col-md-offset-1 col-md-10">
+                        <a id="solhardw5" onclick="changeDivContentHardw6()" style="cursor:pointer; display:none;"><img src="../../../img/img-hardware-6.jpg" style="vertical-align:middle; display:block; margin-left: auto; margin-right: auto " /></a>
+                        <p id="solehardwv13" style="display:none;"><img src="../../../img/img-hardwareava-13.jpg" /> <img src="../../../img/img-hardwareava-14.jpg" /></p>
+                        <p id="solehardwv15" style="display:none;"><img src="../../../img/img-hardwareava-15.jpg" /> <img src="../../../img/img-hardwareava-16.jpg" /></p>
+                        <br id="linebreakerhardwV11" style="display:none;" />
+
+
+                        <img id="solved26" style="display:none; vertical-align:middle; margin-left: auto; margin-right: auto " src="../../../img/img-probsolv-1.png" />
+
+                        <div class="col-md-12" id="solfinal180" style=" display:none; vertical-align:middle; margin-left: auto; margin-right: auto">
+
+                            <input type="submit" value="Sim" class="btn btn-success"/>
+
+                        
+
+                        @Html.EditorFor(model => model.MotivoAvaria, new { htmlAttributes = new { @class = "form-control", @id = "MotivoAvariaBat", @Style = "display:none" } })
+
+
+
+                        
+                            <input type="button" onclick="window.location.href = '@Url.Action("Concluido", "ProdutosUtilizador")'" value="Não" class="btn btn-danger" />
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        }
+
+    </div>
+</body>
+
